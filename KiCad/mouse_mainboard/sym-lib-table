@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name e7020e_custom_lib)(type Legacy)(uri ${KIPRJMOD}/e7020e_custom_lib.lib)(options "")(descr ""))
+)

@@ -1,0 +1,302 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Regulator_Linear:AMS1117-1.5 U?
+U 1 1 605BAC6E
+P 5500 3150
+AR Path="/605BAC6E" Ref="U?"  Part="1" 
+AR Path="/605A54A6/605BAC6E" Ref="U2"  Part="1" 
+F 0 "U2" H 5500 3392 50  0000 C CNN
+F 1 "AP2125N-3.3TRG1" H 5500 3301 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23W_Handsoldering" H 5500 3350 50  0001 C CNN
+F 3 "https://www.elfa.se/Web/Downloads/_t/ds/AP2125_eng_tds.pdf" H 5600 2900 50  0001 C CNN
+	1    5500 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 605BAC74
+P 4900 3350
+AR Path="/605BAC74" Ref="C?"  Part="1" 
+AR Path="/605A54A6/605BAC74" Ref="C12"  Part="1" 
+F 0 "C12" H 5018 3396 50  0000 L CNN
+F 1 "1u" H 5018 3305 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 4938 3200 50  0001 C CNN
+F 3 "~" H 4900 3350 50  0001 C CNN
+	1    4900 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 605BAC7A
+P 6050 3350
+AR Path="/605BAC7A" Ref="C?"  Part="1" 
+AR Path="/605A54A6/605BAC7A" Ref="C13"  Part="1" 
+F 0 "C13" H 6168 3396 50  0000 L CNN
+F 1 "1u" H 6168 3305 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 6088 3200 50  0001 C CNN
+F 3 "~" H 6050 3350 50  0001 C CNN
+	1    6050 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 3150 6050 3150
+Wire Wire Line
+	6050 3150 6050 3200
+Wire Wire Line
+	5200 3150 4900 3150
+Wire Wire Line
+	4900 3150 4900 3200
+$Comp
+L power:+5V #PWR?
+U 1 1 605BAC84
+P 4800 3150
+AR Path="/605BAC84" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BAC84" Ref="#PWR0112"  Part="1" 
+F 0 "#PWR0112" H 4800 3000 50  0001 C CNN
+F 1 "+5V" V 4815 3278 50  0000 L CNN
+F 2 "" H 4800 3150 50  0001 C CNN
+F 3 "" H 4800 3150 50  0001 C CNN
+	1    4800 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 605BAC8A
+P 6150 3150
+AR Path="/605BAC8A" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BAC8A" Ref="#PWR0113"  Part="1" 
+F 0 "#PWR0113" H 6150 3000 50  0001 C CNN
+F 1 "+3.3V" V 6165 3278 50  0000 L CNN
+F 2 "" H 6150 3150 50  0001 C CNN
+F 3 "" H 6150 3150 50  0001 C CNN
+	1    6150 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6150 3150 6050 3150
+Connection ~ 6050 3150
+Wire Wire Line
+	4800 3150 4900 3150
+Connection ~ 4900 3150
+$Comp
+L power:GND #PWR?
+U 1 1 605BAC94
+P 4900 3500
+AR Path="/605BAC94" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BAC94" Ref="#PWR0114"  Part="1" 
+F 0 "#PWR0114" H 4900 3250 50  0001 C CNN
+F 1 "GND" H 4905 3327 50  0000 C CNN
+F 2 "" H 4900 3500 50  0001 C CNN
+F 3 "" H 4900 3500 50  0001 C CNN
+	1    4900 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 605BAC9A
+P 5500 3450
+AR Path="/605BAC9A" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BAC9A" Ref="#PWR0115"  Part="1" 
+F 0 "#PWR0115" H 5500 3200 50  0001 C CNN
+F 1 "GND" H 5505 3277 50  0000 C CNN
+F 2 "" H 5500 3450 50  0001 C CNN
+F 3 "" H 5500 3450 50  0001 C CNN
+	1    5500 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 605BACA0
+P 6050 3500
+AR Path="/605BACA0" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BACA0" Ref="#PWR0116"  Part="1" 
+F 0 "#PWR0116" H 6050 3250 50  0001 C CNN
+F 1 "GND" H 6055 3327 50  0000 C CNN
+F 2 "" H 6050 3500 50  0001 C CNN
+F 3 "" H 6050 3500 50  0001 C CNN
+	1    6050 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:MIC5205YM5 U?
+U 1 1 605BACA6
+P 5500 4350
+AR Path="/605BACA6" Ref="U?"  Part="1" 
+AR Path="/605A54A6/605BACA6" Ref="U3"  Part="1" 
+F 0 "U3" H 5500 4692 50  0000 C CNN
+F 1 "MIC5235YM5-TR" H 5500 4601 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 5500 4675 50  0001 C CNN
+F 3 "https://www.elfa.se/Web/Downloads/_t/ds/MIC5235YM5-TR_eng_tds.pdf" H 5500 4350 50  0001 C CNN
+	1    5500 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 605BACAC
+P 4850 4500
+AR Path="/605BACAC" Ref="C?"  Part="1" 
+AR Path="/605A54A6/605BACAC" Ref="C11"  Part="1" 
+F 0 "C11" H 4968 4546 50  0000 L CNN
+F 1 "1u" H 4968 4455 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 4888 4350 50  0001 C CNN
+F 3 "~" H 4850 4500 50  0001 C CNN
+	1    4850 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 605BACB2
+P 4750 4250
+AR Path="/605BACB2" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BACB2" Ref="#PWR0117"  Part="1" 
+F 0 "#PWR0117" H 4750 4100 50  0001 C CNN
+F 1 "+5V" V 4765 4378 50  0000 L CNN
+F 2 "" H 4750 4250 50  0001 C CNN
+F 3 "" H 4750 4250 50  0001 C CNN
+	1    4750 4250
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4750 4250 4850 4250
+Wire Wire Line
+	4850 4250 4850 4350
+$Comp
+L power:GND #PWR?
+U 1 1 605BACBA
+P 5500 4650
+AR Path="/605BACBA" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BACBA" Ref="#PWR0118"  Part="1" 
+F 0 "#PWR0118" H 5500 4400 50  0001 C CNN
+F 1 "GND" H 5505 4477 50  0000 C CNN
+F 2 "" H 5500 4650 50  0001 C CNN
+F 3 "" H 5500 4650 50  0001 C CNN
+	1    5500 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 605BACC0
+P 4850 4650
+AR Path="/605BACC0" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BACC0" Ref="#PWR0119"  Part="1" 
+F 0 "#PWR0119" H 4850 4400 50  0001 C CNN
+F 1 "GND" H 4855 4477 50  0000 C CNN
+F 2 "" H 4850 4650 50  0001 C CNN
+F 3 "" H 4850 4650 50  0001 C CNN
+	1    4850 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 605BACC6
+P 6200 4400
+AR Path="/605BACC6" Ref="R?"  Part="1" 
+AR Path="/605A54A6/605BACC6" Ref="R6"  Part="1" 
+F 0 "R6" H 6131 4354 50  0000 R CNN
+F 1 "5.6K" H 6131 4445 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 6130 4400 50  0001 C CNN
+F 3 "~" H 6200 4400 50  0001 C CNN
+	1    6200 4400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 605BACCC
+P 6200 4700
+AR Path="/605BACCC" Ref="R?"  Part="1" 
+AR Path="/605A54A6/605BACCC" Ref="R7"  Part="1" 
+F 0 "R7" H 6130 4654 50  0000 R CNN
+F 1 "10k" H 6130 4745 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 6130 4700 50  0001 C CNN
+F 3 "~" H 6200 4700 50  0001 C CNN
+	1    6200 4700
+	1    0    0    1   
+$EndComp
+$Comp
+L power:VDD #PWR?
+U 1 1 605BACD2
+P 6650 4250
+AR Path="/605BACD2" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BACD2" Ref="#PWR0120"  Part="1" 
+F 0 "#PWR0120" H 6650 4100 50  0001 C CNN
+F 1 "VDD" V 6665 4378 50  0000 L CNN
+F 2 "" H 6650 4250 50  0001 C CNN
+F 3 "" H 6650 4250 50  0001 C CNN
+	1    6650 4250
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6650 4250 6400 4250
+Connection ~ 6200 4250
+Wire Wire Line
+	6200 4250 5800 4250
+Connection ~ 6400 4250
+Wire Wire Line
+	6400 4250 6200 4250
+Wire Wire Line
+	5800 4450 5900 4450
+Wire Wire Line
+	5900 4450 5900 4550
+Wire Wire Line
+	5900 4550 6200 4550
+Connection ~ 6200 4550
+$Comp
+L power:GND #PWR?
+U 1 1 605BACE1
+P 6200 4850
+AR Path="/605BACE1" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BACE1" Ref="#PWR0121"  Part="1" 
+F 0 "#PWR0121" H 6200 4600 50  0001 C CNN
+F 1 "GND" H 6205 4677 50  0000 C CNN
+F 2 "" H 6200 4850 50  0001 C CNN
+F 3 "" H 6200 4850 50  0001 C CNN
+	1    6200 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 605BACE7
+P 6400 4550
+AR Path="/605BACE7" Ref="#PWR?"  Part="1" 
+AR Path="/605A54A6/605BACE7" Ref="#PWR0122"  Part="1" 
+F 0 "#PWR0122" H 6400 4300 50  0001 C CNN
+F 1 "GND" H 6405 4377 50  0000 C CNN
+F 2 "" H 6400 4550 50  0001 C CNN
+F 3 "" H 6400 4550 50  0001 C CNN
+	1    6400 4550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C?
+U 1 1 605BACED
+P 6400 4400
+AR Path="/605BACED" Ref="C?"  Part="1" 
+AR Path="/605A54A6/605BACED" Ref="C14"  Part="1" 
+F 0 "C14" H 6518 4446 50  0000 L CNN
+F 1 "2.2u" H 6518 4355 50  0000 L CNN
+F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 6438 4250 50  0001 C CNN
+F 3 "~" H 6400 4400 50  0001 C CNN
+	1    6400 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 4250 4850 4250
+Connection ~ 4850 4250
+Wire Wire Line
+	5200 4350 5200 4250
+Connection ~ 5200 4250
+$EndSCHEMATC

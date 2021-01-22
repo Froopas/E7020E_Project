@@ -1,0 +1,218 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 5 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector:Conn_01x06_Male PrgmPrt1
+U 1 1 605DE1A3
+P 5950 2350
+F 0 "PrgmPrt1" H 5922 2324 50  0000 R CNN
+F 1 "Conn_01x06_Male" H 5922 2233 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 5950 2350 50  0001 C CNN
+F 3 "~" H 5950 2350 50  0001 C CNN
+	1    5950 2350
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0132
+U 1 1 605DE1A9
+P 5550 2150
+F 0 "#PWR0132" H 5550 2000 50  0001 C CNN
+F 1 "+3.3V" V 5565 2278 50  0000 L CNN
+F 2 "" H 5550 2150 50  0001 C CNN
+F 3 "" H 5550 2150 50  0001 C CNN
+	1    5550 2150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0133
+U 1 1 605DE1AF
+P 5550 2350
+F 0 "#PWR0133" H 5550 2100 50  0001 C CNN
+F 1 "GND" V 5555 2222 50  0000 R CNN
+F 2 "" H 5550 2350 50  0001 C CNN
+F 3 "" H 5550 2350 50  0001 C CNN
+	1    5550 2350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5750 2150 5550 2150
+Wire Wire Line
+	5550 2350 5750 2350
+Text GLabel 5500 2250 0    50   Input ~ 0
+sw_clk
+Text GLabel 5500 2450 0    50   Input ~ 0
+sw_io
+Text GLabel 5500 2550 0    50   Input ~ 0
+sw_rst
+Text GLabel 5500 2650 0    50   Input ~ 0
+sw_o
+Wire Wire Line
+	5500 2450 5750 2450
+Wire Wire Line
+	5750 2550 5500 2550
+Wire Wire Line
+	5750 2650 5500 2650
+Wire Wire Line
+	5750 2250 5500 2250
+$Comp
+L Connector:USB_OTG J1
+U 1 1 605DE1BF
+P 6450 3800
+F 0 "J1" H 6220 3789 50  0000 R CNN
+F 1 "USB_OTG" H 6220 3698 50  0000 R CNN
+F 2 "Connector_USB:USB_Micro-B_Molex-105017-0001" H 6600 3750 50  0001 C CNN
+F 3 " ~" H 6600 3750 50  0001 C CNN
+	1    6450 3800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 4200 6550 4200
+$Comp
+L power:GND #PWR0134
+U 1 1 605DE1C6
+P 6550 4350
+F 0 "#PWR0134" H 6550 4100 50  0001 C CNN
+F 1 "GND" H 6555 4177 50  0000 C CNN
+F 2 "" H 6550 4350 50  0001 C CNN
+F 3 "" H 6550 4350 50  0001 C CNN
+	1    6550 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 4350 6550 4200
+Connection ~ 6550 4200
+Text GLabel 4750 3300 0    50   Input ~ 0
+usb_d+
+Text GLabel 4750 4300 0    50   Input ~ 0
+usb_d-
+$Comp
+L power:+5V #PWR0135
+U 1 1 605DE1D0
+P 5900 3600
+F 0 "#PWR0135" H 5900 3450 50  0001 C CNN
+F 1 "+5V" V 5915 3728 50  0000 L CNN
+F 2 "" H 5900 3600 50  0001 C CNN
+F 3 "" H 5900 3600 50  0001 C CNN
+	1    5900 3600
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6150 3600 5900 3600
+NoConn ~ 6150 4000
+$Comp
+L Switch:SW_Push SW1
+U 1 1 605DE1D8
+P 5300 4950
+F 0 "SW1" H 5300 5235 50  0000 C CNN
+F 1 "SW_Push" H 5300 5144 50  0000 C CNN
+F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm" H 5300 5150 50  0001 C CNN
+F 3 "~" H 5300 5150 50  0001 C CNN
+	1    5300 4950
+	1    0    0    -1  
+$EndComp
+Text GLabel 4850 4950 0    50   Input ~ 0
+sw_rst
+Wire Wire Line
+	4850 4950 5100 4950
+$Comp
+L power:GND #PWR0136
+U 1 1 605DE1E0
+P 5750 4950
+F 0 "#PWR0136" H 5750 4700 50  0001 C CNN
+F 1 "GND" V 5755 4822 50  0000 R CNN
+F 2 "" H 5750 4950 50  0001 C CNN
+F 3 "" H 5750 4950 50  0001 C CNN
+	1    5750 4950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C23
+U 1 1 605DE1E6
+P 5300 5300
+F 0 "C23" V 5552 5300 50  0000 C CNN
+F 1 "100n" V 5461 5300 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 5338 5150 50  0001 C CNN
+F 3 "~" H 5300 5300 50  0001 C CNN
+	1    5300 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5150 5300 5100 5300
+Wire Wire Line
+	5100 5300 5100 4950
+Connection ~ 5100 4950
+Wire Wire Line
+	5500 4950 5500 5300
+Wire Wire Line
+	5500 5300 5450 5300
+Wire Wire Line
+	5500 4950 5750 4950
+Connection ~ 5500 4950
+$Comp
+L Power_Protection:USBLC6-2SC6 U5
+U 1 1 605DE1F3
+P 4850 3800
+F 0 "U5" V 4804 3356 50  0000 R CNN
+F 1 "USBLC6-2SC6" V 4895 3356 50  0000 R CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-6" H 4850 3300 50  0001 C CNN
+F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 5050 4150 50  0001 C CNN
+	1    4850 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5550 3900 5550 4300
+Wire Wire Line
+	5550 4300 4950 4300
+Wire Wire Line
+	4950 4300 4950 4200
+Wire Wire Line
+	5550 3900 6150 3900
+Wire Wire Line
+	5550 3800 6150 3800
+Wire Wire Line
+	4750 3400 4750 3300
+Wire Wire Line
+	4750 4200 4750 4300
+$Comp
+L power:+5V #PWR0137
+U 1 1 605DE200
+P 5250 3800
+F 0 "#PWR0137" H 5250 3650 50  0001 C CNN
+F 1 "+5V" V 5265 3928 50  0000 L CNN
+F 2 "" H 5250 3800 50  0001 C CNN
+F 3 "" H 5250 3800 50  0001 C CNN
+	1    5250 3800
+	0    1    -1   0   
+$EndComp
+$Comp
+L power:GND #PWR0138
+U 1 1 605DE206
+P 4450 3700
+F 0 "#PWR0138" H 4450 3450 50  0001 C CNN
+F 1 "GND" H 4455 3527 50  0000 C CNN
+F 2 "" H 4450 3700 50  0001 C CNN
+F 3 "" H 4450 3700 50  0001 C CNN
+	1    4450 3700
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4450 3700 4450 3800
+Wire Wire Line
+	5550 3800 5550 3250
+Wire Wire Line
+	4950 3250 4950 3400
+Wire Wire Line
+	5550 3250 4950 3250
+$EndSCHEMATC

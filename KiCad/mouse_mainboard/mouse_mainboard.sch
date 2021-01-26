@@ -40,7 +40,7 @@ $EndSheet
 $Sheet
 S 5900 4050 1400 950 
 U 606120FA
-F0 "display_and_indicators" 50
-F1 "display_and_indicators.sch" 50
+F0 "interface" 50
+F1 "user_interface.sch" 50
 $EndSheet
 $EndSCHEMATC

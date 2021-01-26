@@ -26,32 +26,6 @@ F 3 "https://www.elfa.se/Web/Downloads/_t/ds/AP2125_eng_tds.pdf" H 5600 2900 50 
 	1    5500 3150
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:CP C?
-U 1 1 605BAC74
-P 4900 3350
-AR Path="/605BAC74" Ref="C?"  Part="1" 
-AR Path="/605A54A6/605BAC74" Ref="C12"  Part="1" 
-F 0 "C12" H 5018 3396 50  0000 L CNN
-F 1 "1u" H 5018 3305 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 4938 3200 50  0001 C CNN
-F 3 "~" H 4900 3350 50  0001 C CNN
-	1    4900 3350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:CP C?
-U 1 1 605BAC7A
-P 6050 3350
-AR Path="/605BAC7A" Ref="C?"  Part="1" 
-AR Path="/605A54A6/605BAC7A" Ref="C13"  Part="1" 
-F 0 "C13" H 6168 3396 50  0000 L CNN
-F 1 "1u" H 6168 3305 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 6088 3200 50  0001 C CNN
-F 3 "~" H 6050 3350 50  0001 C CNN
-	1    6050 3350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5800 3150 6050 3150
 Wire Wire Line
@@ -145,19 +119,6 @@ F 3 "https://www.elfa.se/Web/Downloads/_t/ds/MIC5235YM5-TR_eng_tds.pdf" H 5500 4
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP C?
-U 1 1 605BACAC
-P 4850 4500
-AR Path="/605BACAC" Ref="C?"  Part="1" 
-AR Path="/605A54A6/605BACAC" Ref="C11"  Part="1" 
-F 0 "C11" H 4968 4546 50  0000 L CNN
-F 1 "1u" H 4968 4455 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 4888 4350 50  0001 C CNN
-F 3 "~" H 4850 4500 50  0001 C CNN
-	1    4850 4500
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+5V #PWR?
 U 1 1 605BACB2
 P 4750 4250
@@ -239,14 +200,9 @@ F 3 "" H 6650 4250 50  0001 C CNN
 	1    6650 4250
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	6650 4250 6400 4250
 Connection ~ 6200 4250
 Wire Wire Line
 	6200 4250 5800 4250
-Connection ~ 6400 4250
-Wire Wire Line
-	6400 4250 6200 4250
 Wire Wire Line
 	5800 4450 5900 4450
 Wire Wire Line
@@ -280,23 +236,71 @@ F 3 "" H 6400 4550 50  0001 C CNN
 	1    6400 4550
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:CP C?
-U 1 1 605BACED
-P 6400 4400
-AR Path="/605BACED" Ref="C?"  Part="1" 
-AR Path="/605A54A6/605BACED" Ref="C14"  Part="1" 
-F 0 "C14" H 6518 4446 50  0000 L CNN
-F 1 "2.2u" H 6518 4355 50  0000 L CNN
-F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 6438 4250 50  0001 C CNN
-F 3 "~" H 6400 4400 50  0001 C CNN
-	1    6400 4400
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5200 4250 4850 4250
 Connection ~ 4850 4250
 Wire Wire Line
 	5200 4350 5200 4250
 Connection ~ 5200 4250
+$Comp
+L Device:C C?
+U 1 1 60172BDD
+P 4900 3350
+AR Path="/60172BDD" Ref="C?"  Part="1" 
+AR Path="/6049DC2E/60172BDD" Ref="C?"  Part="1" 
+AR Path="/605A54A6/60172BDD" Ref="C12"  Part="1" 
+F 0 "C12" V 4648 3350 50  0000 C CNN
+F 1 "1u" V 4739 3350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4938 3200 50  0001 C CNN
+F 3 "~" H 4900 3350 50  0001 C CNN
+	1    4900 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 601744CD
+P 6050 3350
+AR Path="/601744CD" Ref="C?"  Part="1" 
+AR Path="/6049DC2E/601744CD" Ref="C?"  Part="1" 
+AR Path="/605A54A6/601744CD" Ref="C13"  Part="1" 
+F 0 "C13" V 5798 3350 50  0000 C CNN
+F 1 "1u" V 5889 3350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6088 3200 50  0001 C CNN
+F 3 "~" H 6050 3350 50  0001 C CNN
+	1    6050 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 60174FF6
+P 4850 4500
+AR Path="/60174FF6" Ref="C?"  Part="1" 
+AR Path="/6049DC2E/60174FF6" Ref="C?"  Part="1" 
+AR Path="/605A54A6/60174FF6" Ref="C11"  Part="1" 
+F 0 "C11" V 4598 4500 50  0000 C CNN
+F 1 "1u" V 4689 4500 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4888 4350 50  0001 C CNN
+F 3 "~" H 4850 4500 50  0001 C CNN
+	1    4850 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 4250 6400 4250
+$Comp
+L Device:C C?
+U 1 1 601765B7
+P 6400 4400
+AR Path="/601765B7" Ref="C?"  Part="1" 
+AR Path="/6049DC2E/601765B7" Ref="C?"  Part="1" 
+AR Path="/605A54A6/601765B7" Ref="C14"  Part="1" 
+F 0 "C14" V 6148 4400 50  0000 C CNN
+F 1 "2.2u" V 6239 4400 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6438 4250 50  0001 C CNN
+F 3 "~" H 6400 4400 50  0001 C CNN
+	1    6400 4400
+	-1   0    0    -1  
+$EndComp
+Connection ~ 6400 4250
+Wire Wire Line
+	6400 4250 6650 4250
 $EndSCHEMATC

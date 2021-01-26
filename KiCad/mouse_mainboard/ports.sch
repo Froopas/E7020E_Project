@@ -19,7 +19,7 @@ U 1 1 605DE1A3
 P 5950 2350
 F 0 "PrgmPrt1" H 5922 2324 50  0000 R CNN
 F 1 "Conn_01x06_Male" H 5922 2233 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 5950 2350 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5950 2350 50  0001 C CNN
 F 3 "~" H 5950 2350 50  0001 C CNN
 	1    5950 2350
 	-1   0    0    -1  
@@ -72,7 +72,7 @@ U 1 1 605DE1BF
 P 6450 3800
 F 0 "J1" H 6220 3789 50  0000 R CNN
 F 1 "USB_OTG" H 6220 3698 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 6600 3750 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6600 3750 50  0001 C CNN
 F 3 " ~" H 6600 3750 50  0001 C CNN
 	1    6450 3800
 	-1   0    0    -1  

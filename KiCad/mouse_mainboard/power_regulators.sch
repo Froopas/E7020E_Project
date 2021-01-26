@@ -169,7 +169,7 @@ AR Path="/605BACC6" Ref="R?"  Part="1"
 AR Path="/605A54A6/605BACC6" Ref="R6"  Part="1" 
 F 0 "R6" H 6131 4354 50  0000 R CNN
 F 1 "5.6K" H 6131 4445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 6130 4400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6130 4400 50  0001 C CNN
 F 3 "~" H 6200 4400 50  0001 C CNN
 	1    6200 4400
 	1    0    0    1   
@@ -182,7 +182,7 @@ AR Path="/605BACCC" Ref="R?"  Part="1"
 AR Path="/605A54A6/605BACCC" Ref="R7"  Part="1" 
 F 0 "R7" H 6130 4654 50  0000 R CNN
 F 1 "10k" H 6130 4745 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 6130 4700 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6130 4700 50  0001 C CNN
 F 3 "~" H 6200 4700 50  0001 C CNN
 	1    6200 4700
 	1    0    0    1   
@@ -251,7 +251,7 @@ AR Path="/6049DC2E/60172BDD" Ref="C?"  Part="1"
 AR Path="/605A54A6/60172BDD" Ref="C12"  Part="1" 
 F 0 "C12" V 4648 3350 50  0000 C CNN
 F 1 "1u" V 4739 3350 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4938 3200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 4938 3200 50  0001 C CNN
 F 3 "~" H 4900 3350 50  0001 C CNN
 	1    4900 3350
 	1    0    0    -1  
@@ -265,7 +265,7 @@ AR Path="/6049DC2E/601744CD" Ref="C?"  Part="1"
 AR Path="/605A54A6/601744CD" Ref="C13"  Part="1" 
 F 0 "C13" V 5798 3350 50  0000 C CNN
 F 1 "1u" V 5889 3350 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6088 3200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6088 3200 50  0001 C CNN
 F 3 "~" H 6050 3350 50  0001 C CNN
 	1    6050 3350
 	1    0    0    -1  
@@ -279,7 +279,7 @@ AR Path="/6049DC2E/60174FF6" Ref="C?"  Part="1"
 AR Path="/605A54A6/60174FF6" Ref="C11"  Part="1" 
 F 0 "C11" V 4598 4500 50  0000 C CNN
 F 1 "1u" V 4689 4500 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4888 4350 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 4888 4350 50  0001 C CNN
 F 3 "~" H 4850 4500 50  0001 C CNN
 	1    4850 4500
 	1    0    0    -1  
@@ -295,7 +295,7 @@ AR Path="/6049DC2E/601765B7" Ref="C?"  Part="1"
 AR Path="/605A54A6/601765B7" Ref="C14"  Part="1" 
 F 0 "C14" V 6148 4400 50  0000 C CNN
 F 1 "2.2u" V 6239 4400 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 6438 4250 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6438 4250 50  0001 C CNN
 F 3 "~" H 6400 4400 50  0001 C CNN
 	1    6400 4400
 	-1   0    0    -1  

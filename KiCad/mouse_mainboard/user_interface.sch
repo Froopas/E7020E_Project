@@ -21,7 +21,7 @@ AR Path="/606133D6" Ref="R?"  Part="1"
 AR Path="/606120FA/606133D6" Ref="R12"  Part="1" 
 F 0 "R12" V 1243 5650 50  0000 C CNN
 F 1 "750R" V 1334 5650 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1380 5650 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 1380 5650 50  0001 C CNN
 F 3 "~" H 1450 5650 50  0001 C CNN
 	1    1450 5650
 	0    -1   1    0   
@@ -34,7 +34,7 @@ AR Path="/606133DC" Ref="D?"  Part="1"
 AR Path="/606120FA/606133DC" Ref="D1"  Part="1" 
 F 0 "D1" H 1743 5395 50  0000 C CNN
 F 1 "LED" H 1743 5486 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1750 5650 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 1750 5650 50  0001 C CNN
 F 3 "~" H 1750 5650 50  0001 C CNN
 	1    1750 5650
 	-1   0    0    1   
@@ -56,7 +56,7 @@ U 1 1 6064CE74
 P 6400 4200
 F 0 "R21" H 6330 4154 50  0000 R CNN
 F 1 "1k" H 6330 4245 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 6330 4200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6330 4200 50  0001 C CNN
 F 3 "~" H 6400 4200 50  0001 C CNN
 	1    6400 4200
 	1    0    0    1   
@@ -78,7 +78,7 @@ U 1 1 6064E22E
 P 5600 4200
 F 0 "R19" H 5530 4154 50  0000 R CNN
 F 1 "1k" H 5530 4245 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5530 4200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5530 4200 50  0001 C CNN
 F 3 "~" H 5600 4200 50  0001 C CNN
 	1    5600 4200
 	1    0    0    1   
@@ -100,7 +100,7 @@ U 1 1 6064EE26
 P 4800 4200
 F 0 "R17" H 4730 4154 50  0000 R CNN
 F 1 "1k" H 4730 4245 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 4730 4200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 4730 4200 50  0001 C CNN
 F 3 "~" H 4800 4200 50  0001 C CNN
 	1    4800 4200
 	1    0    0    1   
@@ -111,7 +111,7 @@ U 1 1 606784E7
 P 7200 1400
 F 0 "R14" H 7130 1354 50  0000 R CNN
 F 1 "1k" H 7130 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 7130 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 7130 1400 50  0001 C CNN
 F 3 "~" H 7200 1400 50  0001 C CNN
 	1    7200 1400
 	1    0    0    1   
@@ -133,7 +133,7 @@ U 1 1 6069BCFC
 P 6350 1400
 F 0 "R15" H 6280 1354 50  0000 R CNN
 F 1 "1k" H 6280 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 6280 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6280 1400 50  0001 C CNN
 F 3 "~" H 6350 1400 50  0001 C CNN
 	1    6350 1400
 	1    0    0    1   
@@ -155,7 +155,7 @@ U 1 1 6069D317
 P 5500 1400
 F 0 "R16" H 5430 1354 50  0000 R CNN
 F 1 "1k" H 5430 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5430 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5430 1400 50  0001 C CNN
 F 3 "~" H 5500 1400 50  0001 C CNN
 	1    5500 1400
 	1    0    0    1   
@@ -177,7 +177,7 @@ U 1 1 6069FA0C
 P 4650 1400
 F 0 "R18" H 4580 1354 50  0000 R CNN
 F 1 "1k" H 4580 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 4580 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 4580 1400 50  0001 C CNN
 F 3 "~" H 4650 1400 50  0001 C CNN
 	1    4650 1400
 	1    0    0    1   
@@ -199,7 +199,7 @@ U 1 1 606A1C28
 P 3800 1400
 F 0 "R20" H 3730 1354 50  0000 R CNN
 F 1 "1k" H 3730 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 3730 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 3730 1400 50  0001 C CNN
 F 3 "~" H 3800 1400 50  0001 C CNN
 	1    3800 1400
 	1    0    0    1   
@@ -221,7 +221,7 @@ U 1 1 606AAAE5
 P 2950 1400
 F 0 "R22" H 2880 1354 50  0000 R CNN
 F 1 "1k" H 2880 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 2880 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 2880 1400 50  0001 C CNN
 F 3 "~" H 2950 1400 50  0001 C CNN
 	1    2950 1400
 	1    0    0    1   
@@ -243,7 +243,7 @@ U 1 1 606AAAF7
 P 2100 1400
 F 0 "R23" H 2030 1354 50  0000 R CNN
 F 1 "1k" H 2030 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 2030 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 2030 1400 50  0001 C CNN
 F 3 "~" H 2100 1400 50  0001 C CNN
 	1    2100 1400
 	1    0    0    1   
@@ -265,7 +265,7 @@ U 1 1 606C6569
 P 1250 1400
 F 0 "R24" H 1180 1354 50  0000 R CNN
 F 1 "1k" H 1180 1445 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 1180 1400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 1180 1400 50  0001 C CNN
 F 3 "~" H 1250 1400 50  0001 C CNN
 	1    1250 1400
 	1    0    0    1   
@@ -287,7 +287,7 @@ U 1 1 60716530
 P 4800 3850
 F 0 "Q7" V 5128 3850 50  0000 C CNN
 F 1 "BC817" V 5037 3850 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5000 3775 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5000 3775 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/_t/ds/BC817_eng_tds.pdf" H 4800 3850 50  0001 L CNN
 	1    4800 3850
 	0    1    -1   0   
@@ -298,7 +298,7 @@ U 1 1 6072094B
 P 5600 3850
 F 0 "Q9" V 5928 3850 50  0000 C CNN
 F 1 "BC817" V 5837 3850 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5800 3775 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5800 3775 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/_t/ds/BC817_eng_tds.pdf" H 5600 3850 50  0001 L CNN
 	1    5600 3850
 	0    1    -1   0   
@@ -309,7 +309,7 @@ U 1 1 60720F32
 P 6400 3850
 F 0 "Q11" V 6728 3850 50  0000 C CNN
 F 1 "BC817" V 6637 3850 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 6600 3775 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6600 3775 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/_t/ds/BC817_eng_tds.pdf" H 6400 3850 50  0001 L CNN
 	1    6400 3850
 	0    1    -1   0   
@@ -320,7 +320,7 @@ U 1 1 60725FB0
 P 7200 1750
 F 0 "Q12" V 7435 1750 50  0000 C CNN
 F 1 "BC807" V 7526 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 7400 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7400 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 7200 1750 50  0001 L CNN
 	1    7200 1750
 	0    1    1    0   
@@ -331,7 +331,7 @@ U 1 1 6072C1A3
 P 6350 1750
 F 0 "Q10" V 6585 1750 50  0000 C CNN
 F 1 "BC807" V 6676 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 6550 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6550 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 6350 1750 50  0001 L CNN
 	1    6350 1750
 	0    1    1    0   
@@ -342,7 +342,7 @@ U 1 1 6072C724
 P 5500 1750
 F 0 "Q8" V 5735 1750 50  0000 C CNN
 F 1 "BC807" V 5826 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5700 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5700 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 5500 1750 50  0001 L CNN
 	1    5500 1750
 	0    1    1    0   
@@ -353,7 +353,7 @@ U 1 1 6072DA9C
 P 4650 1750
 F 0 "Q6" V 4885 1750 50  0000 C CNN
 F 1 "BC807" V 4976 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4850 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 4850 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 4650 1750 50  0001 L CNN
 	1    4650 1750
 	0    1    1    0   
@@ -364,7 +364,7 @@ U 1 1 6072E075
 P 3800 1750
 F 0 "Q5" V 4035 1750 50  0000 C CNN
 F 1 "BC807" V 4126 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4000 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 4000 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 3800 1750 50  0001 L CNN
 	1    3800 1750
 	0    1    1    0   
@@ -375,7 +375,7 @@ U 1 1 6072F524
 P 2950 1750
 F 0 "Q4" V 3185 1750 50  0000 C CNN
 F 1 "BC807" V 3276 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 3150 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 3150 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 2950 1750 50  0001 L CNN
 	1    2950 1750
 	0    1    1    0   
@@ -386,7 +386,7 @@ U 1 1 6072FE45
 P 2100 1750
 F 0 "Q2" V 2335 1750 50  0000 C CNN
 F 1 "BC807" V 2426 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 2300 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2300 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 2100 1750 50  0001 L CNN
 	1    2100 1750
 	0    1    1    0   
@@ -397,7 +397,7 @@ U 1 1 60730AE2
 P 1250 1750
 F 0 "Q1" V 1485 1750 50  0000 C CNN
 F 1 "BC807" V 1576 1750 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 1450 1675 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 1450 1675 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/7x/_e/vfBC856x-to-BC857x_e.pdf" H 1250 1750 50  0001 L CNN
 	1    1250 1750
 	0    1    1    0   
@@ -408,7 +408,7 @@ U 1 1 607582FF
 P 1600 6900
 F 0 "R26" H 1530 6854 50  0000 R CNN
 F 1 "1k" H 1530 6945 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1530 6900 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 1530 6900 50  0001 C CNN
 F 3 "~" H 1600 6900 50  0001 C CNN
 	1    1600 6900
 	0    -1   1    0   
@@ -419,7 +419,7 @@ U 1 1 60758305
 P 1950 6900
 F 0 "Q3" H 2141 6946 50  0000 L CNN
 F 1 "BC817" H 2141 6855 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 2150 6825 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2150 6825 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/_t/ds/BC817_eng_tds.pdf" H 1950 6900 50  0001 L CNN
 	1    1950 6900
 	1    0    0    -1  
@@ -432,7 +432,7 @@ AR Path="/6076889F" Ref="R?"  Part="1"
 AR Path="/606120FA/6076889F" Ref="R25"  Part="1" 
 F 0 "R25" V 1243 6500 50  0000 C CNN
 F 1 "750R" V 1334 6500 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1380 6500 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 1380 6500 50  0001 C CNN
 F 3 "~" H 1450 6500 50  0001 C CNN
 	1    1450 6500
 	0    -1   1    0   
@@ -445,7 +445,7 @@ AR Path="/607688A5" Ref="D?"  Part="1"
 AR Path="/606120FA/607688A5" Ref="D2"  Part="1" 
 F 0 "D2" H 1743 6245 50  0000 C CNN
 F 1 "LED" H 1743 6336 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1750 6500 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 1750 6500 50  0001 C CNN
 F 3 "~" H 1750 6500 50  0001 C CNN
 	1    1750 6500
 	-1   0    0    1   
@@ -578,7 +578,7 @@ U 1 1 60147FF8
 P 7950 2750
 F 0 "J2" H 7922 2774 50  0000 R CNN
 F 1 "Conn_01x11_Male" H 7922 2683 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x11_P2.54mm_Vertical" H 7950 2750 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7950 2750 50  0001 C CNN
 F 3 "~" H 7950 2750 50  0001 C CNN
 	1    7950 2750
 	-1   0    0    -1  
@@ -591,7 +591,7 @@ AR Path="/601A1A15" Ref="R?"  Part="1"
 AR Path="/606120FA/601A1A15" Ref="R13"  Part="1" 
 F 0 "R13" V 1243 6100 50  0000 C CNN
 F 1 "50R" V 1334 6100 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1380 6100 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 1380 6100 50  0001 C CNN
 F 3 "~" H 1450 6100 50  0001 C CNN
 	1    1450 6100
 	0    -1   1    0   
@@ -604,7 +604,7 @@ AR Path="/601A1A1B" Ref="D?"  Part="1"
 AR Path="/606120FA/601A1A1B" Ref="D3"  Part="1" 
 F 0 "D3" H 1743 5845 50  0000 C CNN
 F 1 "LED" H 1743 5936 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1750 6100 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 1750 6100 50  0001 C CNN
 F 3 "~" H 1750 6100 50  0001 C CNN
 	1    1750 6100
 	-1   0    0    1   
@@ -629,7 +629,7 @@ AR Path="/6049DC2E/601B6470" Ref="JP?"  Part="1"
 AR Path="/606120FA/601B6470" Ref="JP2"  Part="1" 
 F 0 "JP2" H 2800 6614 50  0000 C CNN
 F 1 "Jumper" H 2800 6523 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2800 6350 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2800 6350 50  0001 C CNN
 F 3 "~" H 2800 6350 50  0001 C CNN
 	1    2800 6350
 	1    0    0    -1  
@@ -665,7 +665,7 @@ U 1 1 6022E04C
 P 5850 5750
 F 0 "D4" H 6194 5796 50  0000 L CNN
 F 1 "WS2812B" H 6194 5705 50  0000 L CNN
-F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 5900 5450 50  0001 L TNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5900 5450 50  0001 L TNN
 F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5950 5375 50  0001 L TNN
 	1    5850 5750
 	1    0    0    -1  
@@ -700,7 +700,7 @@ U 1 1 6024DA69
 P 5850 6900
 F 0 "D5" H 6194 6946 50  0000 L CNN
 F 1 "WS2812B" H 6194 6855 50  0000 L CNN
-F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 5900 6600 50  0001 L TNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5900 6600 50  0001 L TNN
 F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 5950 6525 50  0001 L TNN
 	1    5850 6900
 	1    0    0    -1  
@@ -747,7 +747,7 @@ U 1 1 60125569
 P 4350 6350
 F 0 "R27" H 4280 6304 50  0000 R CNN
 F 1 "1k" H 4280 6395 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4280 6350 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 4280 6350 50  0001 C CNN
 F 3 "~" H 4350 6350 50  0001 C CNN
 	1    4350 6350
 	0    -1   1    0   
@@ -758,7 +758,7 @@ U 1 1 6012556F
 P 4700 6350
 F 0 "Q13" V 5028 6350 50  0000 C CNN
 F 1 "BC817" V 4937 6350 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 4900 6275 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 4900 6275 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/_t/ds/BC817_eng_tds.pdf" H 4700 6350 50  0001 L CNN
 	1    4700 6350
 	1    0    0    -1  
@@ -769,7 +769,7 @@ U 1 1 60156702
 P 5150 6000
 F 0 "Q14" V 5478 6000 50  0000 C CNN
 F 1 "BC817" V 5387 6000 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5350 5925 50  0001 L CIN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5350 5925 50  0001 L CIN
 F 3 "https://www.elfa.se/Web/Downloads/_t/ds/BC817_eng_tds.pdf" H 5150 6000 50  0001 L CNN
 	1    5150 6000
 	1    0    0    -1  
@@ -780,7 +780,7 @@ U 1 1 6015DF29
 P 4800 5550
 F 0 "R28" H 4730 5504 50  0000 R CNN
 F 1 "1k" H 4730 5595 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 4730 5550 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 4730 5550 50  0001 C CNN
 F 3 "~" H 4800 5550 50  0001 C CNN
 	1    4800 5550
 	-1   0    0    -1  
@@ -791,7 +791,7 @@ U 1 1 6015ECA7
 P 5250 5550
 F 0 "R29" H 5180 5504 50  0000 R CNN
 F 1 "1k" H 5180 5595 50  0000 R CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 5180 5550 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5180 5550 50  0001 C CNN
 F 3 "~" H 5250 5550 50  0001 C CNN
 	1    5250 5550
 	-1   0    0    -1  
@@ -873,7 +873,7 @@ AR Path="/605D51A7/60239EE4" Ref="SW?"  Part="1"
 AR Path="/606120FA/60239EE4" Ref="RST1"  Part="1" 
 F 0 "RST1" H 7750 5935 50  0000 C CNN
 F 1 "SW_Push" H 7750 5844 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_Push_1P1T_NO_6x6mm_H9.5mm" H 7750 5850 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7750 5850 50  0001 C CNN
 F 3 "~" H 7750 5850 50  0001 C CNN
 	1    7750 5650
 	1    0    0    -1  
@@ -903,7 +903,7 @@ AR Path="/605D51A7/60239EF2" Ref="C?"  Part="1"
 AR Path="/606120FA/60239EF2" Ref="C23"  Part="1" 
 F 0 "C23" V 8002 6000 50  0000 C CNN
 F 1 "100n" V 7911 6000 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7788 5850 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7788 5850 50  0001 C CNN
 F 3 "~" H 7750 6000 50  0001 C CNN
 	1    7750 6000
 	0    -1   -1   0   
@@ -928,7 +928,7 @@ AR Path="/605D51A7/6023FD8C" Ref="RST?"  Part="1"
 AR Path="/606120FA/6023FD8C" Ref="Left1"  Part="1" 
 F 0 "Left1" H 9450 5785 50  0000 C CNN
 F 1 "SW_Push" H 9450 5694 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS" H 9450 5700 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 9450 5700 50  0001 C CNN
 F 3 "~" H 9450 5700 50  0001 C CNN
 	1    9450 5500
 	1    0    0    -1  
@@ -952,7 +952,7 @@ U 1 1 60244AFD
 P 9100 5500
 F 0 "R30" H 9030 5454 50  0000 R CNN
 F 1 "1k" H 9030 5545 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9030 5500 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 9030 5500 50  0001 C CNN
 F 3 "~" H 9100 5500 50  0001 C CNN
 	1    9100 5500
 	0    1    -1   0   
@@ -978,7 +978,7 @@ U 1 1 6024AFCF
 P 9100 6050
 F 0 "R31" H 9030 6004 50  0000 R CNN
 F 1 "1k" H 9030 6095 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 9030 6050 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 9030 6050 50  0001 C CNN
 F 3 "~" H 9100 6050 50  0001 C CNN
 	1    9100 6050
 	0    1    -1   0   
@@ -1001,7 +1001,7 @@ AR Path="/605D51A7/602A4F97" Ref="RST?"  Part="1"
 AR Path="/606120FA/602A4F97" Ref="Right1"  Part="1" 
 F 0 "Right1" H 9450 6335 50  0000 C CNN
 F 1 "SW_Push" H 9450 6244 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_Tactile_SPST_Angled_PTS645Vx58-2LFS" H 9450 6250 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 9450 6250 50  0001 C CNN
 F 3 "~" H 9450 6250 50  0001 C CNN
 	1    9450 6050
 	1    0    0    -1  

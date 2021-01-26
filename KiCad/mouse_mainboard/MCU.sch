@@ -70,7 +70,7 @@ AR Path="/60566D5D" Ref="R?"  Part="1"
 AR Path="/6049DC2E/60566D5D" Ref="R4"  Part="1" 
 F 0 "R4" H 5630 5154 50  0000 R CNN
 F 1 "10k" H 5630 5245 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5630 5200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5630 5200 50  0001 C CNN
 F 3 "~" H 5700 5200 50  0001 C CNN
 	1    5700 5200
 	1    0    0    1   
@@ -83,7 +83,7 @@ AR Path="/60566D63" Ref="R?"  Part="1"
 AR Path="/6049DC2E/60566D63" Ref="R5"  Part="1" 
 F 0 "R5" H 5830 5154 50  0000 R CNN
 F 1 "10k" H 5830 5245 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5830 5200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5830 5200 50  0001 C CNN
 F 3 "~" H 5900 5200 50  0001 C CNN
 	1    5900 5200
 	-1   0    0    1   
@@ -108,8 +108,6 @@ Text GLabel 3200 4250 0    50   Input ~ 0
 pwm_int
 Text GLabel 3200 4350 0    50   Input ~ 0
 pwm_gpo
-Wire Wire Line
-	3200 3950 4000 3950
 Wire Wire Line
 	3200 4250 4000 4250
 Wire Wire Line
@@ -264,7 +262,7 @@ AR Path="/60566DF3" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566DF3" Ref="C2"  Part="1" 
 F 0 "C2" V 3152 3100 50  0000 C CNN
 F 1 "22p" V 3061 3100 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 2950 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2938 2950 50  0001 C CNN
 F 3 "~" H 2900 3100 50  0001 C CNN
 	1    2900 3100
 	0    -1   1    0   
@@ -277,7 +275,7 @@ AR Path="/60566DF9" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566DF9" Ref="C1"  Part="1" 
 F 0 "C1" V 2648 3500 50  0000 C CNN
 F 1 "22p" V 2739 3500 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 3350 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2938 3350 50  0001 C CNN
 F 3 "~" H 2900 3500 50  0001 C CNN
 	1    2900 3500
 	0    1    -1   0   
@@ -348,7 +346,7 @@ AR Path="/60566E1B" Ref="JP?"  Part="1"
 AR Path="/6049DC2E/60566E1B" Ref="JP1"  Part="1" 
 F 0 "JP1" H 3100 2614 50  0000 C CNN
 F 1 "Jumper" H 3100 2523 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3100 2350 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 3100 2350 50  0001 C CNN
 F 3 "~" H 3100 2350 50  0001 C CNN
 	1    3100 2350
 	1    0    0    -1  
@@ -361,7 +359,7 @@ AR Path="/60566E21" Ref="R?"  Part="1"
 AR Path="/6049DC2E/60566E21" Ref="R2"  Part="1" 
 F 0 "R2" H 3430 2004 50  0000 R CNN
 F 1 "10k" H 3430 2095 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3430 2050 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 3430 2050 50  0001 C CNN
 F 3 "~" H 3500 2050 50  0001 C CNN
 	1    3500 2050
 	1    0    0    1   
@@ -438,7 +436,7 @@ AR Path="/60566E4F" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566E4F" Ref="C8"  Part="1" 
 F 0 "C8" V 7898 2550 50  0000 C CNN
 F 1 "100n" V 7989 2550 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8188 2400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 8188 2400 50  0001 C CNN
 F 3 "~" H 8150 2550 50  0001 C CNN
 	1    8150 2550
 	0    1    1    0   
@@ -451,7 +449,7 @@ AR Path="/60566E55" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566E55" Ref="C9"  Part="1" 
 F 0 "C9" V 7898 2950 50  0000 C CNN
 F 1 "100n" V 7989 2950 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8188 2800 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 8188 2800 50  0001 C CNN
 F 3 "~" H 8150 2950 50  0001 C CNN
 	1    8150 2950
 	0    1    1    0   
@@ -464,7 +462,7 @@ AR Path="/60566E67" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566E67" Ref="C6"  Part="1" 
 F 0 "C6" V 7298 2950 50  0000 C CNN
 F 1 "100n" V 7389 2950 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7588 2800 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7588 2800 50  0001 C CNN
 F 3 "~" H 7550 2950 50  0001 C CNN
 	1    7550 2950
 	0    1    1    0   
@@ -477,7 +475,7 @@ AR Path="/60566E6D" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566E6D" Ref="C7"  Part="1" 
 F 0 "C7" V 7298 3350 50  0000 C CNN
 F 1 "100n" V 7389 3350 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7588 3200 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7588 3200 50  0001 C CNN
 F 3 "~" H 7550 3350 50  0001 C CNN
 	1    7550 3350
 	0    1    1    0   
@@ -501,7 +499,7 @@ AR Path="/60162059" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60162059" Ref="C3"  Part="1" 
 F 0 "C3" V 3398 2700 50  0000 C CNN
 F 1 "2.2u" V 3489 2700 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3688 2550 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 3688 2550 50  0001 C CNN
 F 3 "~" H 3650 2700 50  0001 C CNN
 	1    3650 2700
 	0    1    1    0   
@@ -514,7 +512,7 @@ AR Path="/601679BC" Ref="C?"  Part="1"
 AR Path="/6049DC2E/601679BC" Ref="C4"  Part="1" 
 F 0 "C4" V 7298 2550 50  0000 C CNN
 F 1 "4.7u" V 7389 2550 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7588 2400 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7588 2400 50  0001 C CNN
 F 3 "~" H 7550 2550 50  0001 C CNN
 	1    7550 2550
 	0    1    1    0   
@@ -527,7 +525,7 @@ AR Path="/60566D84" Ref="R?"  Part="1"
 AR Path="/6049DC2E/60566D84" Ref="R3"  Part="1" 
 F 0 "R3" H 3580 4504 50  0000 R CNN
 F 1 "10k" H 3580 4595 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3580 4550 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 3580 4550 50  0001 C CNN
 F 3 "~" H 3650 4550 50  0001 C CNN
 	1    3650 4550
 	-1   0    0    1   
@@ -540,7 +538,7 @@ AR Path="/60566D7E" Ref="R?"  Part="1"
 AR Path="/6049DC2E/60566D7E" Ref="R1"  Part="1" 
 F 0 "R1" H 3380 4504 50  0000 R CNN
 F 1 "10k" H 3380 4595 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 3380 4550 50  0001 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 3380 4550 50  0001 C CNN
 F 3 "~" H 3450 4550 50  0001 C CNN
 	1    3450 4550
 	1    0    0    1   
@@ -594,4 +592,123 @@ Wire Wire Line
 Wire Wire Line
 	3700 4850 4000 4850
 NoConn ~ 5400 3050
+Wire Wire Line
+	3200 3950 4000 3950
+$Comp
+L Connector:TestPoint TP1
+U 1 1 6010F7FC
+P 1700 3950
+F 0 "TP1" V 1895 4022 50  0000 C CNN
+F 1 "TestPoint" V 1804 4022 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 1900 3950 50  0001 C CNN
+F 3 "~" H 1900 3950 50  0001 C CNN
+	1    1700 3950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP2
+U 1 1 6012A4BE
+P 1700 4250
+F 0 "TP2" V 1895 4322 50  0000 C CNN
+F 1 "TestPoint" V 1804 4322 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 1900 4250 50  0001 C CNN
+F 3 "~" H 1900 4250 50  0001 C CNN
+	1    1700 4250
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:TestPoint TP4
+U 1 1 6012A910
+P 2200 4250
+F 0 "TP4" V 2395 4322 50  0000 C CNN
+F 1 "TestPoint" V 2304 4322 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2400 4250 50  0001 C CNN
+F 3 "~" H 2400 4250 50  0001 C CNN
+	1    2200 4250
+	0    -1   -1   0   
+$EndComp
+Text GLabel 1700 4250 2    50   Input ~ 0
+miso
+$Comp
+L Connector:TestPoint TP3
+U 1 1 6012AE60
+P 2200 3950
+F 0 "TP3" V 2395 4022 50  0000 C CNN
+F 1 "TestPoint" V 2304 4022 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2400 3950 50  0001 C CNN
+F 3 "~" H 2400 3950 50  0001 C CNN
+	1    2200 3950
+	0    -1   -1   0   
+$EndComp
+Text GLabel 1700 3950 2    50   Output ~ 0
+mosi
+Text GLabel 2200 4250 2    50   Input ~ 0
+pwm_gpo
+Text GLabel 2200 3950 2    50   Input ~ 0
+pwm_int
+$Comp
+L Connector:TestPoint TP7
+U 1 1 6014AF7A
+P 6550 3450
+F 0 "TP7" V 6504 3638 50  0000 L CNN
+F 1 "TestPoint" V 6595 3638 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6750 3450 50  0001 C CNN
+F 3 "~" H 6750 3450 50  0001 C CNN
+	1    6550 3450
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP6
+U 1 1 6014C141
+P 6550 3250
+F 0 "TP6" V 6504 3438 50  0000 L CNN
+F 1 "TestPoint" V 6595 3438 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6750 3250 50  0001 C CNN
+F 3 "~" H 6750 3250 50  0001 C CNN
+	1    6550 3250
+	0    1    1    0   
+$EndComp
+Text GLabel 6550 3250 0    50   BiDi ~ 0
+usb_d-
+Text GLabel 6550 3450 0    50   BiDi ~ 0
+usb_d+
+$Comp
+L Connector:TestPoint TP8
+U 1 1 601B5F62
+P 6700 4800
+F 0 "TP8" V 6654 4988 50  0000 L CNN
+F 1 "TestPoint" V 6745 4988 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6900 4800 50  0001 C CNN
+F 3 "~" H 6900 4800 50  0001 C CNN
+	1    6700 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP9
+U 1 1 601BA315
+P 6700 4950
+F 0 "TP9" V 6654 5138 50  0000 L CNN
+F 1 "TestPoint" V 6745 5138 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6900 4950 50  0001 C CNN
+F 3 "~" H 6900 4950 50  0001 C CNN
+	1    6700 4950
+	0    1    1    0   
+$EndComp
+Text GLabel 6700 4800 0    50   Output ~ 0
+sclk
+Text GLabel 6700 4950 0    50   Output ~ 0
+ncs
+$Comp
+L Connector:TestPoint TP5
+U 1 1 601CF8E0
+P 3300 5650
+F 0 "TP5" V 3495 5722 50  0000 C CNN
+F 1 "TestPoint" V 3404 5722 50  0000 C CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 3500 5650 50  0001 C CNN
+F 3 "~" H 3500 5650 50  0001 C CNN
+	1    3300 5650
+	0    -1   -1   0   
+$EndComp
+Text GLabel 3300 5650 2    50   Output ~ 0
+led_d
 $EndSCHEMATC

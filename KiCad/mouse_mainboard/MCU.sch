@@ -116,7 +116,6 @@ NoConn ~ 4000 3550
 NoConn ~ 5400 3150
 NoConn ~ 5400 2950
 NoConn ~ 5400 2850
-NoConn ~ 5400 2750
 NoConn ~ 5400 2650
 NoConn ~ 5400 2550
 NoConn ~ 5400 2450
@@ -711,4 +710,8 @@ F 3 "~" H 3500 5650 50  0001 C CNN
 $EndComp
 Text GLabel 3300 5650 2    50   Output ~ 0
 led_d
+Text GLabel 5750 2750 2    50   Input ~ 0
+strip_out
+Wire Wire Line
+	5750 2750 5400 2750
 $EndSCHEMATC

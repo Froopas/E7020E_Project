@@ -1006,4 +1006,39 @@ F 3 "~" H 9450 6250 50  0001 C CNN
 	1    9450 6050
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector:Conn_01x03_Male J3
+U 1 1 60208D6E
+P 10350 1500
+F 0 "J3" H 10322 1524 50  0000 R CNN
+F 1 "Conn_01x03_Male" H 10322 1433 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 10350 1500 50  0001 C CNN
+F 3 "~" H 10350 1500 50  0001 C CNN
+	1    10350 1500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 602309B3
+P 10150 1400
+F 0 "#PWR?" H 10150 1250 50  0001 C CNN
+F 1 "+3.3V" V 10165 1528 50  0000 L CNN
+F 2 "" H 10150 1400 50  0001 C CNN
+F 3 "" H 10150 1400 50  0001 C CNN
+	1    10150 1400
+	0    -1   1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 602333B0
+P 10150 1600
+F 0 "#PWR?" H 10150 1350 50  0001 C CNN
+F 1 "GND" V 10155 1472 50  0000 R CNN
+F 2 "" H 10150 1600 50  0001 C CNN
+F 3 "" H 10150 1600 50  0001 C CNN
+	1    10150 1600
+	0    1    -1   0   
+$EndComp
+Text GLabel 10150 1500 0    50   Output ~ 0
+strip_out
 $EndSCHEMATC

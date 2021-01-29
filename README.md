@@ -13,7 +13,7 @@ To make this we would need:
 - A [Resistive Linear Sensor](https://www.digikey.com/en/products/detail/spectra-symbol/SP-L-0012-103-1--RH/2175422) ([datasheet](https://media.digikey.com/pdf/Data%20Sheets/Spectra%20Symbol/SP%20Series%20SoftPot.pdf))
 
 ## Overall design
-![design](https://github.com/Froopas/E7020E_Project/raw/main/Documents/Design.PNG "Design")
+![design](https://github.com/Froopas/E7020E_Project/blob/main/img/Design.PNG "Design")
 
 ## PCB
 The PCB is a standard two layer pcb, with the dimentions 40x60 mm.

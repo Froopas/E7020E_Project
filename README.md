@@ -14,3 +14,17 @@ To make this we would need:
 
 ## Overall design
 ![design](https://github.com/Froopas/E7020E_Project/raw/main/Documents/Design.PNG "Design")
+
+## PCB
+The PCB is a standard two layer pcb, with the dimentions 40x60 mm.
+
+![pcb](https://github.com/Froopas/E7020E_Project/blob/main/img/pcb.png "pcb")
+
+## Shell
+The shell is, at the moment, a 3d render from Fusion 360. It has space for the PCB in the middle and some plexi-glass windows to make it more visually pleasing. The buttons on the pcb are designed as *vertical* buttons, which means that the mecanic force from the button will have to come from the front of the pcb, rather than the top. This enables us to have a shell that is a single piece, where some cutout allows the buttons to flex and pivot around where they are joined to the rest of the body. The touch strip is placed under the buttons in the middle, and are mounted on a seperate piece that is screwed into the rest of the shell.
+
+![Mouse_1](https://github.com/Froopas/E7020E_Project/blob/main/img/Mouse_1.png "Mouse_1")
+
+![Mouse_2](https://github.com/Froopas/E7020E_Project/blob/main/img/Mouse_2.png "Mouse_2")
+
+![Mouse_3](https://github.com/Froopas/E7020E_Project/blob/main/img/Mouse_3.png "Mouse_3")

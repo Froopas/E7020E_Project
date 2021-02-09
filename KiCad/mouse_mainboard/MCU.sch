@@ -260,7 +260,7 @@ P 2900 3100
 AR Path="/60566DF3" Ref="C?"  Part="1" 
 AR Path="/6049DC2E/60566DF3" Ref="C2"  Part="1" 
 F 0 "C2" V 3152 3100 50  0000 C CNN
-F 1 "22p" V 3061 3100 50  0000 C CNN
+F 1 "47p" V 3061 3100 50  0000 C CNN
 F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2938 2950 50  0001 C CNN
 F 3 "~" H 2900 3100 50  0001 C CNN
 	1    2900 3100
@@ -273,7 +273,7 @@ P 2900 3500
 AR Path="/60566DF9" Ref="C?"  Part="1" 
 AR Path="/6049DC2E/60566DF9" Ref="C1"  Part="1" 
 F 0 "C1" V 2648 3500 50  0000 C CNN
-F 1 "22p" V 2739 3500 50  0000 C CNN
+F 1 "47p" V 2739 3500 50  0000 C CNN
 F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2938 3350 50  0001 C CNN
 F 3 "~" H 2900 3500 50  0001 C CNN
 	1    2900 3500
@@ -300,7 +300,7 @@ AR Path="/6049DC2E/60566E05" Ref="Y1"  Part="1"
 F 0 "Y1" V 3204 3431 50  0000 L CNN
 F 1 "Crystal" V 3295 3431 50  0000 L CNN
 F 2 "Crystal:Crystal_HC49-4H_Vertical" H 3250 3300 50  0001 C CNN
-F 3 "~" H 3250 3300 50  0001 C CNN
+F 3 "https://www.elfa.se/Web/Downloads/_t/ds/hc49-4h_eng_tds.pdf" H 3250 3300 50  0001 C CNN
 	1    3250 3300
 	0    1    -1   0   
 $EndComp

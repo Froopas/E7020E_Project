@@ -238,7 +238,7 @@ AR Path="/605F24B7" Ref="R?"  Part="1"
 AR Path="/605ED5CC/605F24B7" Ref="R8"  Part="1" 
 F 0 "R8" H 5880 3454 50  0000 R CNN
 F 1 "10k" H 5880 3545 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5880 3500 50  0001 C CNN
+F 2 "Resistor_SMD:R_0815_2038Metric_Pad1.20x4.05mm_HandSolder" V 5880 3500 50  0001 C CNN
 F 3 "~" H 5950 3500 50  0001 C CNN
 	1    5950 3500
 	1    0    0    1   
@@ -265,7 +265,7 @@ AR Path="/605F24C4" Ref="R?"  Part="1"
 AR Path="/605ED5CC/605F24C4" Ref="R9"  Part="1" 
 F 0 "R9" H 6180 3454 50  0000 R CNN
 F 1 "10k" H 6180 3545 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6180 3500 50  0001 C CNN
+F 2 "Resistor_SMD:R_0815_2038Metric_Pad1.20x4.05mm_HandSolder" V 6180 3500 50  0001 C CNN
 F 3 "~" H 6250 3500 50  0001 C CNN
 	1    6250 3500
 	1    0    0    1   
@@ -296,7 +296,7 @@ AR Path="/605F24D3" Ref="R?"  Part="1"
 AR Path="/605ED5CC/605F24D3" Ref="R10"  Part="1" 
 F 0 "R10" H 6480 3454 50  0000 R CNN
 F 1 "10k" H 6480 3545 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6480 3500 50  0001 C CNN
+F 2 "Resistor_SMD:R_0815_2038Metric_Pad1.20x4.05mm_HandSolder" V 6480 3500 50  0001 C CNN
 F 3 "~" H 6550 3500 50  0001 C CNN
 	1    6550 3500
 	1    0    0    1   
@@ -309,7 +309,7 @@ AR Path="/605F24D9" Ref="R?"  Part="1"
 AR Path="/605ED5CC/605F24D9" Ref="R11"  Part="1" 
 F 0 "R11" H 6780 3454 50  0000 R CNN
 F 1 "10k" H 6780 3545 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6780 3500 50  0001 C CNN
+F 2 "Resistor_SMD:R_0815_2038Metric_Pad1.20x4.05mm_HandSolder" V 6780 3500 50  0001 C CNN
 F 3 "~" H 6850 3500 50  0001 C CNN
 	1    6850 3500
 	1    0    0    1   

@@ -19,7 +19,7 @@ U 1 1 605DE1A3
 P 5950 2350
 F 0 "PrgmPrt1" H 5922 2324 50  0000 R CNN
 F 1 "Conn_01x06_Male" H 5922 2233 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 5950 2350 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 5950 2350 50  0001 C CNN
 F 3 "~" H 5950 2350 50  0001 C CNN
 	1    5950 2350
 	-1   0    0    -1  
@@ -72,7 +72,7 @@ U 1 1 605DE1BF
 P 6450 3800
 F 0 "J1" H 6220 3789 50  0000 R CNN
 F 1 "USB_OTG" H 6220 3698 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 6600 3750 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 6600 3750 50  0001 C CNN
 F 3 " ~" H 6600 3750 50  0001 C CNN
 	1    6450 3800
 	-1   0    0    -1  
@@ -93,9 +93,9 @@ $EndComp
 Wire Wire Line
 	6550 4350 6550 4200
 Connection ~ 6550 4200
-Text GLabel 4750 3300 0    50   BiDi ~ 0
+Text GLabel 5950 3800 0    50   BiDi ~ 0
 usb_d+
-Text GLabel 4750 4300 0    50   BiDi ~ 0
+Text GLabel 5950 3900 0    50   BiDi ~ 0
 usb_d-
 $Comp
 L power:+5V #PWR0135
@@ -112,58 +112,7 @@ Wire Wire Line
 	6150 3600 5900 3600
 NoConn ~ 6150 4000
 Wire Wire Line
-	5550 3900 5550 4300
+	6150 3800 5950 3800
 Wire Wire Line
-	5550 4300 4950 4300
-Wire Wire Line
-	4950 4300 4950 4200
-Wire Wire Line
-	5550 3900 6150 3900
-Wire Wire Line
-	5550 3800 6150 3800
-Wire Wire Line
-	4750 3400 4750 3300
-Wire Wire Line
-	4750 4200 4750 4300
-$Comp
-L power:+5V #PWR0137
-U 1 1 605DE200
-P 5250 3800
-F 0 "#PWR0137" H 5250 3650 50  0001 C CNN
-F 1 "+5V" V 5265 3928 50  0000 L CNN
-F 2 "" H 5250 3800 50  0001 C CNN
-F 3 "" H 5250 3800 50  0001 C CNN
-	1    5250 3800
-	0    1    -1   0   
-$EndComp
-$Comp
-L power:GND #PWR0138
-U 1 1 605DE206
-P 4450 3700
-F 0 "#PWR0138" H 4450 3450 50  0001 C CNN
-F 1 "GND" H 4455 3527 50  0000 C CNN
-F 2 "" H 4450 3700 50  0001 C CNN
-F 3 "" H 4450 3700 50  0001 C CNN
-	1    4450 3700
-	1    0    0    1   
-$EndComp
-Wire Wire Line
-	4450 3700 4450 3800
-Wire Wire Line
-	5550 3800 5550 3250
-Wire Wire Line
-	4950 3250 4950 3400
-Wire Wire Line
-	5550 3250 4950 3250
-$Comp
-L Power_Protection:USBLC6-2SC6 U5
-U 1 1 605DE1F3
-P 4850 3800
-F 0 "U5" V 4804 3356 50  0000 R CNN
-F 1 "USBLC6-2SC6" V 4895 3356 50  0000 R CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-6" H 4850 3300 50  0001 C CNN
-F 3 "https://www.st.com/resource/en/datasheet/usblc6-2.pdf" H 5050 4150 50  0001 C CNN
-	1    4850 3800
-	0    1    -1   0   
-$EndComp
+	5950 3900 6150 3900
 $EndSCHEMATC

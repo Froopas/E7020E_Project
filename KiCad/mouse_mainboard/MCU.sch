@@ -14,14 +14,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Wire Wire Line
-	7850 3350 7850 3550
-Connection ~ 7850 3350
-Wire Wire Line
-	7850 2950 7850 3350
-Wire Wire Line
-	7850 2950 7700 2950
-Connection ~ 7850 2950
-Wire Wire Line
 	7850 2550 7850 2950
 Wire Wire Line
 	7850 2550 8000 2550
@@ -113,16 +105,6 @@ Wire Wire Line
 Wire Wire Line
 	4000 4350 3200 4350
 NoConn ~ 4000 3550
-NoConn ~ 5400 3150
-NoConn ~ 5400 2950
-NoConn ~ 5400 2850
-NoConn ~ 5400 2650
-NoConn ~ 5400 2550
-NoConn ~ 5400 2450
-NoConn ~ 5400 2350
-NoConn ~ 5400 2250
-NoConn ~ 5400 2150
-NoConn ~ 5400 3650
 NoConn ~ 5400 3850
 NoConn ~ 5400 3950
 NoConn ~ 5400 4050
@@ -143,45 +125,6 @@ NoConn ~ 4000 4550
 NoConn ~ 4000 4450
 NoConn ~ 4000 3850
 NoConn ~ 4000 3750
-$Comp
-L MCU_ST_STM32F4:STM32F411RETx U?
-U 1 1 60566DB0
-P 4700 3650
-AR Path="/60566DB0" Ref="U?"  Part="1" 
-AR Path="/6049DC2E/60566DB0" Ref="U1"  Part="1" 
-F 0 "U1" H 4700 1761 50  0000 C CNN
-F 1 "STM32F411RETx" H 4700 1670 50  0000 C CNN
-F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 4100 1950 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00115249.pdf" H 4700 3650 50  0001 C CNN
-	1    4700 3650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4500 1950 4600 1950
-Wire Wire Line
-	4600 1950 4700 1950
-Connection ~ 4600 1950
-Connection ~ 4700 1950
-Connection ~ 4800 1950
-Wire Wire Line
-	4800 1950 4900 1950
-Wire Wire Line
-	4900 1950 5000 1950
-Connection ~ 4900 1950
-Wire Wire Line
-	4900 5450 4800 5450
-Wire Wire Line
-	4800 5450 4700 5450
-Connection ~ 4500 5450
-Wire Wire Line
-	4500 5450 4300 5450
-Wire Wire Line
-	4600 5450 4500 5450
-Connection ~ 4600 5450
-Connection ~ 4700 5450
-Wire Wire Line
-	4700 5450 4600 5450
-Connection ~ 4800 5450
 $Comp
 L power:GND #PWR?
 U 1 1 60566DC9
@@ -261,7 +204,7 @@ AR Path="/60566DF3" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566DF3" Ref="C2"  Part="1" 
 F 0 "C2" V 3152 3100 50  0000 C CNN
 F 1 "47p" V 3061 3100 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2938 2950 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 2950 50  0001 C CNN
 F 3 "~" H 2900 3100 50  0001 C CNN
 	1    2900 3100
 	0    -1   1    0   
@@ -274,7 +217,7 @@ AR Path="/60566DF9" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566DF9" Ref="C1"  Part="1" 
 F 0 "C1" V 2648 3500 50  0000 C CNN
 F 1 "47p" V 2739 3500 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 2938 3350 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 2938 3350 50  0001 C CNN
 F 3 "~" H 2900 3500 50  0001 C CNN
 	1    2900 3500
 	0    1    -1   0   
@@ -389,22 +332,6 @@ F 3 "" H 8300 2950 50  0001 C CNN
 	1    8300 2950
 	0    -1   -1   0   
 $EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 60566E33
-P 7400 2950
-AR Path="/60566E33" Ref="#PWR?"  Part="1" 
-AR Path="/6049DC2E/60566E33" Ref="#PWR0110"  Part="1" 
-F 0 "#PWR0110" H 7400 2700 50  0001 C CNN
-F 1 "GND" V 7405 2822 50  0000 R CNN
-F 2 "" H 7400 2950 50  0001 C CNN
-F 3 "" H 7400 2950 50  0001 C CNN
-	1    7400 2950
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7400 2950 7400 3350
-Connection ~ 7400 2950
 Connection ~ 8300 2950
 Wire Wire Line
 	8300 2550 8300 2950
@@ -412,8 +339,6 @@ Wire Wire Line
 	7700 2550 7850 2550
 Wire Wire Line
 	8000 2950 7850 2950
-Wire Wire Line
-	7700 3350 7850 3350
 $Comp
 L power:+3.3V #PWR?
 U 1 1 60566E49
@@ -435,7 +360,7 @@ AR Path="/60566E4F" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566E4F" Ref="C8"  Part="1" 
 F 0 "C8" V 7898 2550 50  0000 C CNN
 F 1 "100n" V 7989 2550 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 8188 2400 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8188 2400 50  0001 C CNN
 F 3 "~" H 8150 2550 50  0001 C CNN
 	1    8150 2550
 	0    1    1    0   
@@ -448,48 +373,16 @@ AR Path="/60566E55" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60566E55" Ref="C9"  Part="1" 
 F 0 "C9" V 7898 2950 50  0000 C CNN
 F 1 "100n" V 7989 2950 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 8188 2800 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8188 2800 50  0001 C CNN
 F 3 "~" H 8150 2950 50  0001 C CNN
 	1    8150 2950
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:C C?
-U 1 1 60566E67
-P 7550 2950
-AR Path="/60566E67" Ref="C?"  Part="1" 
-AR Path="/6049DC2E/60566E67" Ref="C6"  Part="1" 
-F 0 "C6" V 7298 2950 50  0000 C CNN
-F 1 "100n" V 7389 2950 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7588 2800 50  0001 C CNN
-F 3 "~" H 7550 2950 50  0001 C CNN
-	1    7550 2950
-	0    1    1    0   
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 60566E6D
-P 7550 3350
-AR Path="/60566E6D" Ref="C?"  Part="1" 
-AR Path="/6049DC2E/60566E6D" Ref="C7"  Part="1" 
-F 0 "C7" V 7298 3350 50  0000 C CNN
-F 1 "100n" V 7389 3350 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7588 3200 50  0001 C CNN
-F 3 "~" H 7550 3350 50  0001 C CNN
-	1    7550 3350
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4700 1950 4750 1950
 Text GLabel 4750 1850 1    50   Input ~ 0
 mcu_cap
 Wire Wire Line
 	4750 1950 4750 1850
 Connection ~ 4750 1950
-Wire Wire Line
-	4750 1950 4800 1950
-Text GLabel 7850 3550 3    50   Output ~ 0
-mcu_cap
 $Comp
 L Device:C C?
 U 1 1 60162059
@@ -498,7 +391,7 @@ AR Path="/60162059" Ref="C?"  Part="1"
 AR Path="/6049DC2E/60162059" Ref="C3"  Part="1" 
 F 0 "C3" V 3398 2700 50  0000 C CNN
 F 1 "2.2u" V 3489 2700 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 3688 2550 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3688 2550 50  0001 C CNN
 F 3 "~" H 3650 2700 50  0001 C CNN
 	1    3650 2700
 	0    1    1    0   
@@ -511,7 +404,7 @@ AR Path="/601679BC" Ref="C?"  Part="1"
 AR Path="/6049DC2E/601679BC" Ref="C4"  Part="1" 
 F 0 "C4" V 7298 2550 50  0000 C CNN
 F 1 "4.7u" V 7389 2550 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7588 2400 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7588 2400 50  0001 C CNN
 F 3 "~" H 7550 2550 50  0001 C CNN
 	1    7550 2550
 	0    1    1    0   
@@ -567,8 +460,6 @@ btn_l
 Text GLabel 3550 5150 0    50   Input ~ 0
 btn_r
 Wire Wire Line
-	7400 2550 7400 2950
-Wire Wire Line
 	7850 2400 7850 2550
 Text GLabel 3550 5250 0    50   Output ~ 0
 led_d
@@ -590,7 +481,6 @@ Wire Wire Line
 	3700 5050 3550 5050
 Wire Wire Line
 	3700 4850 4000 4850
-NoConn ~ 5400 3050
 Wire Wire Line
 	3200 3950 4000 3950
 $Comp
@@ -710,8 +600,113 @@ F 3 "~" H 3500 5650 50  0001 C CNN
 $EndComp
 Text GLabel 3300 5650 2    50   Output ~ 0
 led_d
-Text GLabel 5750 2750 2    50   Input ~ 0
+Text GLabel 5750 3650 2    50   Input ~ 0
 strip_out
 Wire Wire Line
-	5750 2750 5400 2750
+	5400 3650 5750 3650
+Text GLabel 5750 2150 2    50   Input ~ 0
+disp_1
+Text GLabel 5750 2250 2    50   Input ~ 0
+disp_2
+Text GLabel 5750 2350 2    50   Input ~ 0
+disp_3
+Text GLabel 5750 2450 2    50   Input ~ 0
+disp_4
+Text GLabel 5750 2550 2    50   Input ~ 0
+disp_5
+Text GLabel 5750 2650 2    50   Input ~ 0
+disp_6
+Text GLabel 5750 2750 2    50   Input ~ 0
+disp_7
+Text GLabel 5750 2850 2    50   Input ~ 0
+disp_8
+Wire Wire Line
+	4900 5450 4800 5450
+Connection ~ 4800 5450
+Wire Wire Line
+	4800 5450 4700 5450
+Connection ~ 4700 5450
+Wire Wire Line
+	4700 5450 4600 5450
+Connection ~ 4600 5450
+Wire Wire Line
+	4500 5450 4300 5450
+Wire Wire Line
+	4600 5450 4500 5450
+Connection ~ 4500 5450
+Wire Wire Line
+	4900 1950 5000 1950
+Connection ~ 4900 1950
+Wire Wire Line
+	4800 1950 4900 1950
+Wire Wire Line
+	4750 1950 4800 1950
+Connection ~ 4800 1950
+Wire Wire Line
+	4700 1950 4750 1950
+Connection ~ 4700 1950
+Wire Wire Line
+	4500 1950 4600 1950
+Wire Wire Line
+	4600 1950 4700 1950
+Connection ~ 4600 1950
+$Comp
+L MCU_ST_STM32F4:STM32F411RETx U?
+U 1 1 60566DB0
+P 4700 3650
+AR Path="/60566DB0" Ref="U?"  Part="1" 
+AR Path="/6049DC2E/60566DB0" Ref="U1"  Part="1" 
+F 0 "U1" H 4700 1761 50  0000 C CNN
+F 1 "STM32F411RETx" H 4700 1670 50  0000 C CNN
+F 2 "Package_QFP:LQFP-64_10x10mm_P0.5mm" H 4100 1950 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00115249.pdf" H 4700 3650 50  0001 C CNN
+	1    4700 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 2150 5750 2150
+Wire Wire Line
+	5400 2250 5750 2250
+Wire Wire Line
+	5400 2350 5750 2350
+Wire Wire Line
+	5400 2450 5750 2450
+Wire Wire Line
+	5400 2550 5750 2550
+Wire Wire Line
+	5400 2650 5750 2650
+Wire Wire Line
+	5400 2750 5750 2750
+Wire Wire Line
+	5400 2850 5750 2850
+Wire Wire Line
+	5400 2950 5750 2950
+Wire Wire Line
+	5400 3050 5750 3050
+Wire Wire Line
+	5400 3150 5750 3150
+Text GLabel 7850 3050 3    50   Output ~ 0
+mcu_cap
+Connection ~ 7850 2950
+Wire Wire Line
+	7850 2950 7850 3050
+Text GLabel 5750 2950 2    50   Input ~ 0
+disp_d1
+Text GLabel 5750 3050 2    50   Input ~ 0
+disp_d2
+Text GLabel 5750 3150 2    50   Input ~ 0
+disp_d3
+$Comp
+L power:GND #PWR?
+U 1 1 603CC904
+P 7400 2550
+AR Path="/603CC904" Ref="#PWR?"  Part="1" 
+AR Path="/6049DC2E/603CC904" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 7400 2300 50  0001 C CNN
+F 1 "GND" V 7405 2422 50  0000 R CNN
+F 2 "" H 7400 2550 50  0001 C CNN
+F 3 "" H 7400 2550 50  0001 C CNN
+	1    7400 2550
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

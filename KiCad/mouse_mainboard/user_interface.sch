@@ -106,17 +106,6 @@ F 3 "~" H 4800 4200 50  0001 C CNN
 	1    0    0    1   
 $EndComp
 $Comp
-L Device:R R14
-U 1 1 606784E7
-P 7200 1400
-F 0 "R14" H 7130 1354 50  0000 R CNN
-F 1 "1k" H 7130 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 7130 1400 50  0001 C CNN
-F 3 "~" H 7200 1400 50  0001 C CNN
-	1    7200 1400
-	1    0    0    1   
-$EndComp
-$Comp
 L power:+3.3V #PWR0145
 U 1 1 60699857
 P 7000 1850
@@ -126,17 +115,6 @@ F 2 "" H 7000 1850 50  0001 C CNN
 F 3 "" H 7000 1850 50  0001 C CNN
 	1    7000 1850
 	0    -1   1    0   
-$EndComp
-$Comp
-L Device:R R15
-U 1 1 6069BCFC
-P 6350 1400
-F 0 "R15" H 6280 1354 50  0000 R CNN
-F 1 "1k" H 6280 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6280 1400 50  0001 C CNN
-F 3 "~" H 6350 1400 50  0001 C CNN
-	1    6350 1400
-	1    0    0    1   
 $EndComp
 $Comp
 L power:+3.3V #PWR0146
@@ -150,17 +128,6 @@ F 3 "" H 6150 1850 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L Device:R R16
-U 1 1 6069D317
-P 5500 1400
-F 0 "R16" H 5430 1354 50  0000 R CNN
-F 1 "1k" H 5430 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5430 1400 50  0001 C CNN
-F 3 "~" H 5500 1400 50  0001 C CNN
-	1    5500 1400
-	1    0    0    1   
-$EndComp
-$Comp
 L power:+3.3V #PWR0147
 U 1 1 6069D31D
 P 5300 1850
@@ -170,17 +137,6 @@ F 2 "" H 5300 1850 50  0001 C CNN
 F 3 "" H 5300 1850 50  0001 C CNN
 	1    5300 1850
 	0    -1   1    0   
-$EndComp
-$Comp
-L Device:R R18
-U 1 1 6069FA0C
-P 4650 1400
-F 0 "R18" H 4580 1354 50  0000 R CNN
-F 1 "1k" H 4580 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 4580 1400 50  0001 C CNN
-F 3 "~" H 4650 1400 50  0001 C CNN
-	1    4650 1400
-	1    0    0    1   
 $EndComp
 $Comp
 L power:+3.3V #PWR0148
@@ -194,17 +150,6 @@ F 3 "" H 4450 1850 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L Device:R R20
-U 1 1 606A1C28
-P 3800 1400
-F 0 "R20" H 3730 1354 50  0000 R CNN
-F 1 "1k" H 3730 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 3730 1400 50  0001 C CNN
-F 3 "~" H 3800 1400 50  0001 C CNN
-	1    3800 1400
-	1    0    0    1   
-$EndComp
-$Comp
 L power:+3.3V #PWR0149
 U 1 1 606A1C2E
 P 3600 1850
@@ -214,17 +159,6 @@ F 2 "" H 3600 1850 50  0001 C CNN
 F 3 "" H 3600 1850 50  0001 C CNN
 	1    3600 1850
 	0    -1   1    0   
-$EndComp
-$Comp
-L Device:R R22
-U 1 1 606AAAE5
-P 2950 1400
-F 0 "R22" H 2880 1354 50  0000 R CNN
-F 1 "1k" H 2880 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 2880 1400 50  0001 C CNN
-F 3 "~" H 2950 1400 50  0001 C CNN
-	1    2950 1400
-	1    0    0    1   
 $EndComp
 $Comp
 L power:+3.3V #PWR0150
@@ -238,17 +172,6 @@ F 3 "" H 2750 1850 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L Device:R R23
-U 1 1 606AAAF7
-P 2100 1400
-F 0 "R23" H 2030 1354 50  0000 R CNN
-F 1 "1k" H 2030 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 2030 1400 50  0001 C CNN
-F 3 "~" H 2100 1400 50  0001 C CNN
-	1    2100 1400
-	1    0    0    1   
-$EndComp
-$Comp
 L power:+3.3V #PWR0151
 U 1 1 606AAAFD
 P 1900 1850
@@ -258,17 +181,6 @@ F 2 "" H 1900 1850 50  0001 C CNN
 F 3 "" H 1900 1850 50  0001 C CNN
 	1    1900 1850
 	0    -1   1    0   
-$EndComp
-$Comp
-L Device:R R24
-U 1 1 606C6569
-P 1250 1400
-F 0 "R24" H 1180 1354 50  0000 R CNN
-F 1 "1k" H 1180 1445 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 1180 1400 50  0001 C CNN
-F 3 "~" H 1250 1400 50  0001 C CNN
-	1    1250 1400
-	1    0    0    1   
 $EndComp
 $Comp
 L power:+3.3V #PWR0152
@@ -490,44 +402,12 @@ Wire Wire Line
 	5600 4450 5600 4350
 Wire Wire Line
 	4800 4450 4800 4350
-Wire Wire Line
-	7200 1150 7200 1250
-Wire Wire Line
-	6350 1150 6350 1250
-Wire Wire Line
-	5500 1150 5500 1250
-Wire Wire Line
-	4650 1150 4650 1250
-Wire Wire Line
-	3800 1150 3800 1250
-Wire Wire Line
-	2950 1150 2950 1250
-Wire Wire Line
-	2100 1150 2100 1250
-Wire Wire Line
-	1250 1150 1250 1250
 Text GLabel 4800 4450 3    50   Input ~ 0
 disp_d1
 Text GLabel 5600 4450 3    50   Input ~ 0
 disp_d2
 Text GLabel 6400 4450 3    50   Input ~ 0
 disp_d3
-Text GLabel 7200 1150 1    50   Input ~ 0
-disp_1
-Text GLabel 6350 1150 1    50   Input ~ 0
-disp_2
-Text GLabel 5500 1150 1    50   Input ~ 0
-disp_3
-Text GLabel 4650 1150 1    50   Input ~ 0
-disp_4
-Text GLabel 3800 1150 1    50   Input ~ 0
-disp_5
-Text GLabel 2950 1150 1    50   Input ~ 0
-disp_6
-Text GLabel 2100 1150 1    50   Input ~ 0
-disp_7
-Text GLabel 1250 1150 1    50   Input ~ 0
-disp_8
 Wire Wire Line
 	7750 3250 6600 3250
 Wire Wire Line
@@ -903,7 +783,7 @@ AR Path="/605D51A7/60239EF2" Ref="C?"  Part="1"
 AR Path="/606120FA/60239EF2" Ref="C23"  Part="1" 
 F 0 "C23" V 8002 6000 50  0000 C CNN
 F 1 "100n" V 7911 6000 50  0000 C CNN
-F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 7788 5850 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7788 5850 50  0001 C CNN
 F 3 "~" H 7750 6000 50  0001 C CNN
 	1    7750 6000
 	0    -1   -1   0   
@@ -1041,4 +921,124 @@ F 3 "" H 10150 1600 50  0001 C CNN
 $EndComp
 Text GLabel 10150 1500 0    50   Output ~ 0
 strip_out
+Text GLabel 1250 1150 1    50   Input ~ 0
+disp_8
+Text GLabel 2100 1150 1    50   Input ~ 0
+disp_7
+Text GLabel 2950 1150 1    50   Input ~ 0
+disp_6
+Text GLabel 3800 1150 1    50   Input ~ 0
+disp_5
+Text GLabel 4650 1150 1    50   Input ~ 0
+disp_4
+Text GLabel 5500 1150 1    50   Input ~ 0
+disp_3
+Text GLabel 6350 1150 1    50   Input ~ 0
+disp_2
+Text GLabel 7200 1150 1    50   Input ~ 0
+disp_1
+Wire Wire Line
+	1250 1150 1250 1250
+Wire Wire Line
+	2100 1150 2100 1250
+Wire Wire Line
+	2950 1150 2950 1250
+Wire Wire Line
+	3800 1150 3800 1250
+Wire Wire Line
+	4650 1150 4650 1250
+Wire Wire Line
+	5500 1150 5500 1250
+Wire Wire Line
+	6350 1150 6350 1250
+Wire Wire Line
+	7200 1150 7200 1250
+$Comp
+L Device:R R24
+U 1 1 606C6569
+P 1250 1400
+F 0 "R24" H 1180 1354 50  0000 R CNN
+F 1 "1k" H 1180 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 1180 1400 50  0001 C CNN
+F 3 "~" H 1250 1400 50  0001 C CNN
+	1    1250 1400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R23
+U 1 1 606AAAF7
+P 2100 1400
+F 0 "R23" H 2030 1354 50  0000 R CNN
+F 1 "1k" H 2030 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 2030 1400 50  0001 C CNN
+F 3 "~" H 2100 1400 50  0001 C CNN
+	1    2100 1400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R22
+U 1 1 606AAAE5
+P 2950 1400
+F 0 "R22" H 2880 1354 50  0000 R CNN
+F 1 "1k" H 2880 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 2880 1400 50  0001 C CNN
+F 3 "~" H 2950 1400 50  0001 C CNN
+	1    2950 1400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R20
+U 1 1 606A1C28
+P 3800 1400
+F 0 "R20" H 3730 1354 50  0000 R CNN
+F 1 "1k" H 3730 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 3730 1400 50  0001 C CNN
+F 3 "~" H 3800 1400 50  0001 C CNN
+	1    3800 1400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R18
+U 1 1 6069FA0C
+P 4650 1400
+F 0 "R18" H 4580 1354 50  0000 R CNN
+F 1 "1k" H 4580 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 4580 1400 50  0001 C CNN
+F 3 "~" H 4650 1400 50  0001 C CNN
+	1    4650 1400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R16
+U 1 1 6069D317
+P 5500 1400
+F 0 "R16" H 5430 1354 50  0000 R CNN
+F 1 "1k" H 5430 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 5430 1400 50  0001 C CNN
+F 3 "~" H 5500 1400 50  0001 C CNN
+	1    5500 1400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 6069BCFC
+P 6350 1400
+F 0 "R15" H 6280 1354 50  0000 R CNN
+F 1 "1k" H 6280 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 6280 1400 50  0001 C CNN
+F 3 "~" H 6350 1400 50  0001 C CNN
+	1    6350 1400
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R R14
+U 1 1 606784E7
+P 7200 1400
+F 0 "R14" H 7130 1354 50  0000 R CNN
+F 1 "1k" H 7130 1445 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" V 7130 1400 50  0001 C CNN
+F 3 "~" H 7200 1400 50  0001 C CNN
+	1    7200 1400
+	1    0    0    1   
+$EndComp
 $EndSCHEMATC

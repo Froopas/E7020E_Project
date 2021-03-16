@@ -97,9 +97,9 @@ pub mod hid {
         0xc0, // END_COLLECTION
     ];
 
-    pub fn report(x: i8, y: i8) -> [u8; 3] {
+    pub fn report(button: u8, x: i8, y: i8) -> [u8; 3] {
         [
-            0x00,    // button: none
+            button,    // button: none
             x as u8, // x-axis
             y as u8, // y-axis
         ]
@@ -203,7 +203,7 @@ pub mod hid {
                 REQ_GET_REPORT => {
                     // USB host requests for report
                     // I'm not sure what should we do here, so just send empty report
-                    xfer.accept_with(&report(0, 0)).ok();
+                    xfer.accept_with(&report(0, 0, 0)).ok();
                 }
                 _ => {
                     xfer.reject().ok();
@@ -238,9 +238,19 @@ const APP: () = {
 
         usb_dev: UsbDevice<'static, UsbBusType>,
         hid: HIDClass<'static, UsbBusType>,
+
+        #[init(0)]
+        x_cord: i8,
+        #[init(0)]
+        y_cord: i8,
+
+        #[init(0)]
+        buttn: u8,
     }
-    #[init(schedule = [poll])]
+    #[init(schedule = [poll_pmw])]
     fn init(cx: init::Context) -> init::LateResources {
+        static mut USB_BUS: Option<bus::UsbBusAllocator<UsbBusType>> = None;
+        static mut EP_MEMORY: [u32; 1024] = [0; 1024];
         rtt_init_print!();
         rprintln!("init");
 
@@ -296,14 +306,10 @@ const APP: () = {
         // NOTE do *not* call `Instant::now` in this context; it will return a nonsense value
         let now = cx.start; // the start time of the system
 
-        cx.schedule.poll(now + 16_000.cycles()).unwrap();
+        cx.schedule.poll_pmw(now + 16_000.cycles()).unwrap();
 
         // Initialize usb
         // Pull the D+ pin down to send a RESET condition to the USB bus.
-
-        static mut USB_BUS: Option<bus::UsbBusAllocator<UsbBusType>> = None;
-        static mut EP_MEMORY: [u32; 1024] = [0; 1024];
-
         let mut usb_dp = gpioa.pa12.into_push_pull_output();
         usb_dp.set_low().ok();
         delay(clocks.sysclk().0 / 100);
@@ -335,36 +341,48 @@ const APP: () = {
         init::LateResources { pmw3389, hid, usb_dev }
     }
 
-    #[task(priority = 2, resources = [pmw3389], schedule = [poll], spawn = [trace])]
-    fn poll(cx: poll::Context) {
-        static mut COUNTER: u32 = 0;
-        static mut POS_X: i64 = 0;
+    #[task(priority = 2, resources = [pmw3389, hid, x_cord, y_cord, buttn], schedule = [poll_pmw], spawn = [report])]
+    fn poll_pmw(cx: poll_pmw::Context) {
+        static mut oldx: i8 = 0;
+        static mut oldy: i8 = 0;
+        let res = cx.resources;
 
-        *COUNTER += 1;
-        if *COUNTER == 1000 / RATIO {
-            cx.spawn.trace(*POS_X).unwrap();
-            *COUNTER = 0;
-        }
+        let (x, y) = res.pmw3389.read_status().unwrap();
+        
+        let dx = x as i8 - *oldx;
+        let dy = y as i8 - *oldy;
 
-        let (x, _y) = cx.resources.pmw3389.read_status().unwrap();
-        *POS_X += x as i64;
+        *oldx = x as i8;
+        *oldy = y as i8;
 
+        *res.x_cord = dx;
+        *res.y_cord = dy;
+        
+        //let hid = res.hid;
+
+        //hid.write(&hid::report(*res.buttn, *res.x_cord, *res.y_cord));
+        cx.spawn.report().unwrap();
         // task should run each second N ms (16_000 cycles at 16MHz)
         cx.schedule
-            .poll(cx.scheduled + (RATIO * 16_000).cycles())
+            .poll_pmw(cx.scheduled + (RATIO * 16_000).cycles())
             .unwrap();
     }
 
-    #[task(priority = 1)]
-    fn trace(_cx: trace::Context, pos: i64) {
-        static mut OLD_POS: i64 = 0;
+    #[task(priority = 1, resources = [hid, x_cord, y_cord, buttn], spawn=[trace])]
+    fn report(cx: report::Context) {
+        let hid = cx.resources.hid;
+        hid.write(&hid::report(*cx.resources.buttn, cx.resources.x_cord, cx.resources.y_cord));
+        cx.spawn.trace().unwrap();
+    }
+
+    #[task(priority = 1, resources = [x_cord, y_cord])]
+    fn trace(cx: trace::Context) {
         rprintln!(
-            "pos_x {:010}, diff {:010} @{:?}",
-            pos,
-            pos - *OLD_POS,
+            "pos_x {:010}, pos_y {:010} @{:?}",
+            *cx.resources.x_cord,
+            *cx.resources.y_cord,
             Instant::now()
         );
-        *OLD_POS = pos;
     }
 
     #[idle]
@@ -377,6 +395,7 @@ const APP: () = {
     extern "C" {
         fn EXTI0();
         fn EXTI1();
+        fn EXTI2();
     }
 };
 

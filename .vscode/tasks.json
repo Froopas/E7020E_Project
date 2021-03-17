@@ -4,12 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "cargo build --example",
+            "label": "cargo build",
             "command": "cargo",
             "args": [
-                "build",
-                "--example",
-                "${fileBasenameNoExtension}"
+                "build"
             ],
             "problemMatcher": [
                 "$rustc"

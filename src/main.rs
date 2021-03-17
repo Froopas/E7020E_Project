@@ -3,6 +3,7 @@
 #![no_main]
 #![no_std]
 
+use cortex_m_semihosting::heprintln;
 use embedded_hal::spi::MODE_3;
 use panic_rtt_target as _;
 
@@ -341,19 +342,14 @@ const APP: () = {
         init::LateResources { pmw3389, hid, usb_dev }
     }
 
-    #[task(priority = 2, resources = [pmw3389, hid, x_cord, y_cord, buttn], schedule = [poll_pmw], spawn = [report])]
+    #[task(priority = 2, resources = [pmw3389, x_cord, y_cord, buttn], schedule = [poll_pmw], spawn = [report])]
     fn poll_pmw(cx: poll_pmw::Context) {
-        static mut oldx: i8 = 0;
-        static mut oldy: i8 = 0;
         let res = cx.resources;
 
         let (x, y) = res.pmw3389.read_status().unwrap();
         
-        let dx = x as i8 - *oldx;
-        let dy = y as i8 - *oldy;
-
-        *oldx = x as i8;
-        *oldy = y as i8;
+        let dx = x as i8;
+        let dy = y as i8;
 
         *res.x_cord = dx;
         *res.y_cord = dy;
@@ -369,20 +365,43 @@ const APP: () = {
     }
 
     #[task(priority = 1, resources = [hid, x_cord, y_cord, buttn], spawn=[trace])]
-    fn report(cx: report::Context) {
-        let hid = cx.resources.hid;
-        hid.write(&hid::report(*cx.resources.buttn, cx.resources.x_cord, cx.resources.y_cord));
+    fn report(mut cx: report::Context) {
+        let mut x= 0;
+        let mut y = 0;
+        let mut button = 0;
+        cx.resources.x_cord.lock(|x_cord|{
+            x = *x_cord;
+        });
+        cx.resources.y_cord.lock(|y_cord|{
+            y = *y_cord;
+        });
+        cx.resources.buttn.lock(|buttn|{
+            button = *buttn;
+        });
+        cx.resources.hid.write( &hid::report(button, x, y));
+        rprintln!("report: x: {}, y: {}", x,y);
         cx.spawn.trace().unwrap();
     }
 
-    #[task(priority = 1, resources = [x_cord, y_cord])]
-    fn trace(cx: trace::Context) {
-        rprintln!(
-            "pos_x {:010}, pos_y {:010} @{:?}",
-            *cx.resources.x_cord,
-            *cx.resources.y_cord,
-            Instant::now()
+    #[task(binds=OTG_FS, resources = [usb_dev, hid])]
+    fn usb_fs(mut cx: usb_fs::Context) {
+        usb_poll(
+            &mut cx.resources.usb_dev,
+            &mut cx.resources.hid,
         );
+    }
+
+    #[task(priority = 1, resources = [x_cord, y_cord])]
+    fn trace(mut cx: trace::Context) {
+        let mut x= 0;
+        let mut y = 0;
+        cx.resources.x_cord.lock(|x_cord|{
+            x = *x_cord;
+        });
+        cx.resources.y_cord.lock(|y_cord|{
+            y = *y_cord;
+        });
+        rprintln!("x: {}, y: {}", x,y);
     }
 
     #[idle]
@@ -398,5 +417,15 @@ const APP: () = {
         fn EXTI2();
     }
 };
+
+fn usb_poll<B: bus::UsbBus>(
+    usb_dev: &mut UsbDevice<'static, B>,
+    hid: &mut HIDClass<'static, B>,
+) {
+    rprintln!("usb_poll!");
+    if !usb_dev.poll(&mut [hid]) {
+        return;
+    }
+}
 
 const RATIO: u32 = 5;

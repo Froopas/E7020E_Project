@@ -15,7 +15,7 @@
             "name": "Cortex Debug",
             "servertype": "openocd",
             "cwd": "${workspaceRoot}",
-            "preLaunchTask": "cargo build --example",
+            "preLaunchTask": "cargo build",
             "runToMain": true,
             "svdFile": "${workspaceRoot}/.vscode/STM32F401.svd",
             "configFiles": [

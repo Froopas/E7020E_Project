@@ -64,6 +64,11 @@ const APP: () = {
         x_cord: i8,
         #[init(0)]
         y_cord: i8,
+
+        #[init(0)]
+        adc_last_val: i8,
+        #[init(0)]
+        adc_current_val: i8,
     }
 
     #[init(schedule=[poll_pmw])]
@@ -126,7 +131,7 @@ const APP: () = {
 
         let hid = HIDClass::new(USB_BUS.as_ref().unwrap(), MouseReport::desc(), 1);
         let usb_dev = UsbDeviceBuilder::new(USB_BUS.as_ref().unwrap(), UsbVidPid(0xc410, 0x0000))
-            .manufacturer("E70011E")
+            .manufacturer("Anton och Josef INC")
             .product("Mouse")
             .serial_number("1.0")
             .device_class(0)
@@ -161,10 +166,12 @@ const APP: () = {
     }
 
 
-
-    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn], priority = 2)]
+    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn, adc_last_val, adc_current_val], priority = 2)]
     fn on_usb(ctx: on_usb::Context) {
         static mut COUNTER: u16 = 0;
+
+        let scroll_delta = *ctx.resources.adc_last_val - *ctx.resources.adc_current_val;
+        *ctx.resources.adc_last_val = *ctx.resources.adc_current_val;
 
         // destruct the context
         let (usb_dev,
@@ -173,6 +180,8 @@ const APP: () = {
             y_cord,
             r_buttn,
             l_buttn,
+            adc_last_val,
+            adc_current_val
         ) = ( 
             ctx.resources.usb_dev, 
             ctx.resources.hid,
@@ -180,13 +189,16 @@ const APP: () = {
             ctx.resources.y_cord,
             ctx.resources.r_buttn,
             ctx.resources.l_buttn,
+            ctx.resources.adc_last_val,
+            ctx.resources.adc_current_val,
         );
+
 
         let report = MouseReport {
             x: *x_cord,
             y: *y_cord,
             buttons: ((r_buttn.is_low().unwrap() as u8 )<< 1) | (l_buttn.is_low().unwrap() as u8), // (into takes a bool into an integer)
-            wheel: 0,
+            wheel: scroll_delta,
         };
         rprintln!("Report: x:{}, y:{}", *x_cord, *y_cord);
         // wraps around after 200ms

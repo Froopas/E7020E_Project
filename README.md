@@ -2,7 +2,9 @@
 by Josef Utbult (josutb-7@student.ltu.se) and Anton Johansson (anojoh-7@student.ltu.se)
 
 # Specification
-We plan to make a mouse wired mouse of our own design with 2 buttons(left and right), a sensor instead of a scroll wheel, a 7 segment display to view your progress and a RGB led strip to give you the gaming feeling.
+We plan to make a mouse wired mouse of our own design with 2 buttons(left and right), a sensor 
+instead of a scroll wheel, a 7 segment display to view your progress and a RGB led strip to give 
+you the gaming feeling.
 
 ## Parts
 To make this we would need:
@@ -21,10 +23,63 @@ The PCB is a standard two layer pcb, with the dimentions 40x60 mm.
 ![pcb](https://github.com/Froopas/E7020E_Project/blob/main/img/pcb.png "pcb")
 
 ## Shell
-The shell is, at the moment, a 3d render from Fusion 360. It has space for the PCB in the middle and some plexi-glass windows to make it more visually pleasing. The buttons on the pcb are designed as *vertical* buttons, which means that the mecanic force from the button will have to come from the front of the pcb, rather than the top. This enables us to have a shell that is a single piece, where some cutout allows the buttons to flex and pivot around where they are joined to the rest of the body. The touch strip is placed under the buttons in the middle, and are mounted on a seperate piece that is screwed into the rest of the shell.
+The shell is, at the moment, a 3d render from Fusion 360. It has space for the PCB in the middle 
+and some plexi-glass windows to make it more visually pleasing. The buttons on the pcb are 
+designed as *vertical* buttons, which means that the mecanic force from the button will have to 
+come from the front of the pcb, rather than the top. This enables us to have a shell that is a 
+single piece, where some cutout allows the buttons to flex and pivot around where they are joined 
+to the rest of the body. The touch strip is placed under the buttons in the middle, and are mounted 
+on a seperate piece that is screwed into the rest of the shell.
+
+Shell stuff
 
 ![Mouse_1](https://github.com/Froopas/E7020E_Project/blob/main/img/Mouse_1.png "Mouse_1")
 
 ![Mouse_2](https://github.com/Froopas/E7020E_Project/blob/main/img/Mouse_2.png "Mouse_2")
 
 ![Mouse_3](https://github.com/Froopas/E7020E_Project/blob/main/img/Mouse_3.png "Mouse_3")
+
+# Result
+
+As of 26 of March 2021 we have the following result on our project.
+
+## Features
+
+The hardware in place on the mouse is the mcu, the buttons, the PMW sensor and 7 segment 
+display. The RGB leds that was supposed to be mounted on the pcb, and the touch sensor was left 
+unmounted due to lack of time.
+
+In software we were able to implement RTIC and got the mouse sensor, and the buttons to work with the 
+HID protocol. Due to a mismatch in pin selection for the touch strip, the analog pin we chose to connect
+the sensor to wasn't compatible with the HAL, which meant we could not get the ADC to work on that pin. 
+Therefore, we chose to prioritize other tasks before the touch sensor. And as the RGB leds weren't in 
+place we did not test these either.
+
+The first prototype of the shell could fit the pcb and had the sensor working, but it didn't fit the 
+display and was not very responsive for the buttons. A second version of this is on the way, but due to 
+time constraints this will not be finished for the presentation.
+
+## Testing
+
+The mouse has been tested on Linux and on Windows. It worked great on Linux, but on Windows we had to 
+restart the computer and pull some updates for the mouse to work. The mouse only works on very specific
+surfaces, but other than that it is a functional mouse (at best).
+
+## Evaluation
+
+I (Josef) feel that I've could have put in more work on the software side, and less into designing the 
+shell. Due to personal problems I had less time to work on it than I would have wanted. 
+
+We feel like we've gotten an acceptable result and that the mouse is good enough for what it is.
+
+## Future goals
+
+We would have liked to implement the following.
+
+* A working touch sensor that supports scrolling and scroll wheel click.
+
+* An ergonomic shell that looks nice and is usable, with easily used mouse buttons.
+
+* Cool led colors.
+
+* Communication from the computer to the mouse to display killcount from CS.

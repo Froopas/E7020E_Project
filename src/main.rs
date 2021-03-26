@@ -229,7 +229,6 @@ const APP: () = {
         static mut x_overflow: i8 = 0;
         static mut y_overflow: i8 = 0;
         static DPI:i8 = 5;
-        static mut COUNTER: u16 = 0;
 
         let scroll_delta = *ctx.resources.adc_last_val - *ctx.resources.adc_current_val;
         *ctx.resources.adc_last_val = *ctx.resources.adc_current_val;
@@ -278,6 +277,7 @@ const APP: () = {
         if usb_dev.poll(&mut [hid]) {
             return;
         }
+        //rprintln!("cycle @{:?}", Instant::now());
     }
 
     #[task(resources=[disp1,dispi1,dispi2,dispi3], schedule=[display])]

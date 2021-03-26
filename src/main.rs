@@ -84,6 +84,10 @@ const APP: () = {
         dispi1: PA8<Output<PushPull>>,
         dispi2: PA9<Output<PushPull>>,
         dispi3: PA10<Output<PushPull>>,
+        #[init(0)]
+        adc_last_val: i8,
+        #[init(0)]
+        adc_current_val: i8,
     }
 
     #[init(schedule=[poll_pmw, display])]
@@ -148,7 +152,7 @@ const APP: () = {
 
         let hid = HIDClass::new(USB_BUS.as_ref().unwrap(), MouseReport::desc(), 1);
         let usb_dev = UsbDeviceBuilder::new(USB_BUS.as_ref().unwrap(), UsbVidPid(0xc410, 0x0000))
-            .manufacturer("E70011E")
+            .manufacturer("Anton och Josef INC")
             .product("Mouse")
             .serial_number("1.0")
             .device_class(0)
@@ -220,12 +224,16 @@ const APP: () = {
     }
 
 
-
-    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn], priority = 2)]
+    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn, adc_last_val, adc_current_val], priority = 2)]
     fn on_usb(ctx: on_usb::Context) {
         static mut x_overflow: i8 = 0;
         static mut y_overflow: i8 = 0;
         static DPI:i8 = 5;
+        static mut COUNTER: u16 = 0;
+
+        let scroll_delta = *ctx.resources.adc_last_val - *ctx.resources.adc_current_val;
+        *ctx.resources.adc_last_val = *ctx.resources.adc_current_val;
+
         // destruct the context
         let (usb_dev,
             hid,
@@ -233,6 +241,8 @@ const APP: () = {
             y_cord,
             r_buttn,
             l_buttn,
+            adc_last_val,
+            adc_current_val
         ) = ( 
             ctx.resources.usb_dev, 
             ctx.resources.hid,
@@ -240,6 +250,8 @@ const APP: () = {
             ctx.resources.y_cord,
             ctx.resources.r_buttn,
             ctx.resources.l_buttn,
+            ctx.resources.adc_last_val,
+            ctx.resources.adc_current_val,
         );
 
         let x = (*x_cord + *x_overflow) / DPI;
@@ -253,7 +265,7 @@ const APP: () = {
             x: x,
             y: y,
             buttons: ((r_buttn.is_low().unwrap() as u8 )<< 1) | (l_buttn.is_low().unwrap() as u8), // (into takes a bool into an integer)
-            wheel: 0,
+            wheel: scroll_delta,
         };
         //rprintln!("Report: x:{}, y:{}", *x_cord, *y_cord);
 

@@ -60,7 +60,7 @@ display and was not very responsive for the buttons. A second version of this is
 time constraints this will not be finished for the presentation.
 
 
-![Verison_1](https://github.com/Froopas/E7020E_Project/blob/main/img/version1.jpeg "Version_1")
+![version1](https://github.com/Froopas/E7020E_Project/blob/main/img/version1.jpg "version1")
 
 ## Testing
 

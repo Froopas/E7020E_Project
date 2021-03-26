@@ -8,6 +8,7 @@
 use stm32f4xx_hal::{
     dwt::Dwt,
     gpio::{
+        gpioa::{PA0,PA1,PA2,PA3,PA4,PA5,PA6,PA7,PA8, PA9, PA10},
         gpioc::{PC13, PC2, PC3, PC11, PC12},
         Input,
         PullUp,
@@ -48,6 +49,20 @@ type PMW3389T = pmw3389::Pmw3389<
     PB12<Output<PushPull>>,
 >;
 
+pub struct SevenSegmentDisplay {
+    segDP: PA0<Output<PushPull>>,
+    segG: PA1<Output<PushPull>>,
+    segF: PA2<Output<PushPull>>,
+    segE: PA3<Output<PushPull>>,
+    segD: PA4<Output<PushPull>>,
+    segC: PA5<Output<PushPull>>,
+    segB: PA6<Output<PushPull>>,
+    segA: PA7<Output<PushPull>>,
+    dig1: u8,
+    dig2: u8,
+    dig3: u8,
+}
+
 const RATIO: u32 = 5;
 
 #[rtic::app(device = stm32f4xx_hal::stm32, monotonic = rtic::cyccnt::CYCCNT, peripherals = true)]
@@ -65,13 +80,17 @@ const APP: () = {
         #[init(0)]
         y_cord: i8,
 
+        disp1: SevenSegmentDisplay,
+        dispi1: PA8<Output<PushPull>>,
+        dispi2: PA9<Output<PushPull>>,
+        dispi3: PA10<Output<PushPull>>,
         #[init(0)]
         adc_last_val: i8,
         #[init(0)]
         adc_current_val: i8,
     }
 
-    #[init(schedule=[poll_pmw])]
+    #[init(schedule=[poll_pmw, display])]
     fn init(ctx: init::Context) -> init::LateResources {
         static mut EP_MEMORY: [u32; 1024] = [0; 1024];
         static mut USB_BUS: Option<UsbBusAllocator<UsbBusType>> = None;
@@ -127,6 +146,8 @@ const APP: () = {
 
         ctx.schedule.poll_pmw(now + 16_000.cycles()).unwrap();
 
+        ctx.schedule.display(now + 48_000.cycles()).unwrap();
+
         USB_BUS.replace(UsbBus::new(usb, EP_MEMORY));
 
         let hid = HIDClass::new(USB_BUS.as_ref().unwrap(), MouseReport::desc(), 1);
@@ -140,7 +161,44 @@ const APP: () = {
         let pc11 = gpioc.pc11.into_pull_up_input();
         let pc12 = gpioc.pc12.into_pull_up_input();
 
-        init::LateResources { pmw3389, hid, usb_dev, r_buttn:pc12, l_buttn:pc11}
+        let (
+            pa0,
+            pa1,
+            pa2,
+            pa3,
+            pa4,
+            pa5,
+            pa6,
+            pa7) = (
+            gpioa.pa0.into_push_pull_output(),
+            gpioa.pa1.into_push_pull_output(),
+            gpioa.pa2.into_push_pull_output(),
+            gpioa.pa3.into_push_pull_output(),
+            gpioa.pa4.into_push_pull_output(),
+            gpioa.pa5.into_push_pull_output(),
+            gpioa.pa6.into_push_pull_output(),
+            gpioa.pa7.into_push_pull_output(),
+        );
+
+        let d1 = SevenSegmentDisplay{
+            segDP: pa0,
+            segG: pa1,
+            segF: pa2,
+            segE: pa3,
+            segD: pa4,
+            segC: pa5,
+            segB: pa6,
+            segA: pa7,
+            dig1: 1,
+            dig2: 2,
+            dig3: 3,
+        };
+
+        let di1 = gpioa.pa8.into_push_pull_output();
+        let di2 = gpioa.pa9.into_push_pull_output();
+        let di3 = gpioa.pa10.into_push_pull_output();
+
+        init::LateResources { pmw3389, hid, usb_dev, r_buttn:pc12, l_buttn:pc11, disp1:d1, dispi1:di1, dispi2:di2, dispi3:di3}
     }
 
     #[task(priority = 2, resources = [pmw3389, x_cord, y_cord], schedule = [poll_pmw])]
@@ -152,8 +210,8 @@ const APP: () = {
         let dx = x as i8;
         let dy = y as i8;
 
-        *res.x_cord = dx;
-        *res.y_cord = dy;
+        *res.x_cord += dx;
+        *res.y_cord += dy;
         
         //let hid = res.hid;
 
@@ -168,6 +226,9 @@ const APP: () = {
 
     #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn, adc_last_val, adc_current_val], priority = 2)]
     fn on_usb(ctx: on_usb::Context) {
+        static mut x_overflow: i8 = 0;
+        static mut y_overflow: i8 = 0;
+        static DPI:i8 = 5;
         static mut COUNTER: u16 = 0;
 
         let scroll_delta = *ctx.resources.adc_last_val - *ctx.resources.adc_current_val;
@@ -193,17 +254,23 @@ const APP: () = {
             ctx.resources.adc_current_val,
         );
 
+        let x = (*x_cord + *x_overflow) / DPI;
+        *x_overflow = (*x_cord + *x_overflow) % DPI;
+
+        let y = (*y_cord + *y_overflow) / DPI;
+        *y_overflow = (*y_cord + *y_overflow) % DPI;
+
 
         let report = MouseReport {
-            x: *x_cord,
-            y: *y_cord,
+            x: x,
+            y: y,
             buttons: ((r_buttn.is_low().unwrap() as u8 )<< 1) | (l_buttn.is_low().unwrap() as u8), // (into takes a bool into an integer)
             wheel: scroll_delta,
         };
-        rprintln!("Report: x:{}, y:{}", *x_cord, *y_cord);
-        // wraps around after 200ms
-        *COUNTER = (*COUNTER + 1) % 200;
+        //rprintln!("Report: x:{}, y:{}", *x_cord, *y_cord);
 
+        *x_cord = 0;
+        *y_cord = 0;
         // push the report
         hid.push_input(&report).ok();
 
@@ -213,8 +280,43 @@ const APP: () = {
         }
     }
 
+    #[task(resources=[disp1,dispi1,dispi2,dispi3], schedule=[display])]
+    fn display(cx: display::Context) {
+        static mut DISP:u8 = 0;
+        cx.schedule.display(cx.scheduled + (5 * 48_000).cycles()).unwrap();
+        match DISP {
+            0 => {
+                cx.resources.dispi1.set_high().ok();
+                cx.resources.dispi2.set_low().ok();
+                cx.resources.dispi3.set_low().ok();
+                print_segment(cx.resources.disp1, 5);
+                //rprintln!("first digit {}", cx.resources.disp1.dig1);
+            },
+            1 => {
+                cx.resources.dispi1.set_low().ok();
+                cx.resources.dispi2.set_high().ok();
+                cx.resources.dispi3.set_low().ok();
+                print_segment(cx.resources.disp1, 8);
+                //rprintln!("second digit {}", cx.resources.disp1.dig2);
+            }
+            2 => {
+                cx.resources.dispi1.set_low().ok();
+                cx.resources.dispi2.set_low().ok();
+                cx.resources.dispi3.set_high().ok();
+                print_segment(cx.resources.disp1, 0);
+                //rprintln!("third digit {}", cx.resources.disp1.dig3);
+            }
+            _ => {
+                /*cx.resources.dispi1.set_low().ok();
+                cx.resources.dispi2.set_low().ok();
+                cx.resources.dispi3.set_low().ok();*/
+            }
+        }
+        *DISP = (*DISP+1)%3;
+    }
+
     #[idle]
-    fn idle(_cx: idle::Context) -> ! {
+    fn idle(cx: idle::Context) -> ! {
         rprintln!("idle");
         loop {
             continue;
@@ -228,3 +330,90 @@ const APP: () = {
         fn EXTI2();
     }
 };
+
+fn print_segment(disp: &mut SevenSegmentDisplay, digit:u8) {
+    disp.segDP.set_high().ok();
+    disp.segG.set_high().ok();
+    disp.segF.set_high().ok();
+    disp.segE.set_high().ok();
+    disp.segD.set_high().ok();
+    disp.segC.set_high().ok();
+    disp.segB.set_high().ok();
+    disp.segA.set_high().ok();
+    match digit {
+        1 => {
+            disp.segB.set_low().ok();
+            disp.segC.set_low().ok();
+            //rprintln!("printing 1");
+        },
+        2 => {
+            disp.segA.set_low().ok();
+            disp.segB.set_low().ok();
+            disp.segG.set_low().ok();
+            disp.segE.set_low().ok();
+            disp.segD.set_low().ok();
+        }
+        3 => {
+            disp.segA.set_low().ok();
+            disp.segB.set_low().ok();
+            disp.segG.set_low().ok();
+            disp.segC.set_low().ok();
+            disp.segD.set_low().ok();
+        }
+        4 => {
+            disp.segF.set_low().ok();
+            disp.segB.set_low().ok();
+            disp.segG.set_low().ok();
+            disp.segC.set_low().ok();
+        }
+        5 => {
+            disp.segA.set_low().ok();
+            disp.segF.set_low().ok();
+            disp.segG.set_low().ok();
+            disp.segC.set_low().ok();
+            disp.segD.set_low().ok();
+        }
+        6 => {
+            disp.segA.set_low().ok();
+            disp.segF.set_low().ok();
+            disp.segG.set_low().ok();
+            disp.segD.set_low().ok();
+            disp.segE.set_low().ok();
+            disp.segC.set_low().ok();
+        }
+        7 => {
+            disp.segB.set_low().ok();
+            disp.segC.set_low().ok();
+            disp.segA.set_low().ok();
+        }
+        8 => {
+            disp.segA.set_low().ok();
+            disp.segB.set_low().ok();
+            disp.segF.set_low().ok();
+            disp.segG.set_low().ok();
+            disp.segD.set_low().ok();
+            disp.segE.set_low().ok();
+            disp.segC.set_low().ok();
+        }
+        9 => {
+            disp.segA.set_low().ok();
+            disp.segB.set_low().ok();
+            disp.segF.set_low().ok();
+            disp.segG.set_low().ok();
+            disp.segD.set_low().ok();
+            disp.segC.set_low().ok();
+        }
+        0 => {
+            disp.segA.set_low().ok();
+            disp.segB.set_low().ok();
+            disp.segF.set_low().ok();
+            disp.segD.set_low().ok();
+            disp.segE.set_low().ok();
+            disp.segC.set_low().ok();
+        }
+        _ => {
+
+        }
+    }
+
+}

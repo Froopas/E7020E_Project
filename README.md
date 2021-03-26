@@ -6,6 +6,13 @@ We plan to make a mouse wired mouse of our own design with 2 buttons(left and ri
 instead of a scroll wheel, a 7 segment display to view your progress and a RGB led strip to give 
 you the gaming feeling.
 
+## Features
+- [x] Required
+- [x] Display
+- [ ] Custom shell
+- [ ] Touch scroll 
+- [ ] LED
+
 ## Parts
 To make this we would need:
 - A PWM3389DM-T3QU sensor ([datasheet](https://www.pixart.com/products-detail/4/PMW3389DM-T3QU))

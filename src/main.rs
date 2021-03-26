@@ -41,7 +41,7 @@ use usbd_hid::{
 use panic_rtt_target as _;
 use rtt_target::{rprintln, rtt_init_print};
 
-use rtic::cyccnt::{Instant, U32Ext as _};
+use rtic::{cyccnt::{Instant, U32Ext as _}, export::Priority};
 
 use app::{
     pmw3389::{self, Register},
@@ -268,15 +268,11 @@ const APP: () = {
     }
 
 
-    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn, adc_last_val, adc_current_val], priority = 2)]
+    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn, adc_last_val, adc_current_val, disp1], priority = 2)]
     fn on_usb(ctx: on_usb::Context) {
         static mut x_overflow: i8 = 0;
         static mut y_overflow: i8 = 0;
         static DPI:i8 = 5;
-<<<<<<< HEAD
-=======
-        static mut COUNTER: u16 = 0;
->>>>>>> c38ac00d52987d680c35b01c7229b5c56926e96b
 
         if  (*ctx.resources.adc_last_val < *ctx.resources.adc_current_val && 
             *ctx.resources.adc_last_val - *ctx.resources.adc_current_val > ADC_THREASHOLD) ||
@@ -285,6 +281,11 @@ const APP: () = {
         {
             *ctx.resources.adc_last_val = *ctx.resources.adc_current_val;
             // Display stuff
+            let val = *ctx.resources.adc_last_val;
+            let disp = ctx.resources.disp1;
+            disp.dig1 = (val as u8/100)%10;
+            disp.dig2 = (val as u8/10)%10;
+            disp.dig3 = (val as u8)%10;
         }
 
         // destruct the context
@@ -320,12 +321,7 @@ const APP: () = {
             buttons: ((r_buttn.is_low().unwrap() as u8 )<< 1) | (l_buttn.is_low().unwrap() as u8), // (into takes a bool into an integer)
             wheel: 0,
         };
-<<<<<<< HEAD
-        rprintln!("Report: x:{}, y:{}", *x_cord, *y_cord);
-        // wraps around after 200ms
-=======
         //rprintln!("Report: x:{}, y:{}", *x_cord, *y_cord);
->>>>>>> c38ac00d52987d680c35b01c7229b5c56926e96b
 
         *x_cord = 0;
         *y_cord = 0;
@@ -339,30 +335,31 @@ const APP: () = {
         //rprintln!("cycle @{:?}", Instant::now());
     }
 
-    #[task(resources=[disp1,dispi1,dispi2,dispi3], schedule=[display])]
-    fn display(cx: display::Context) {
+    #[task(resources=[disp1,dispi1,dispi2,dispi3], schedule=[display], priority = 2)]
+    fn display(mut cx: display::Context) {
         static mut DISP:u8 = 0;
         cx.schedule.display(cx.scheduled + (5 * 48_000).cycles()).unwrap();
+        let disp:  &mut SevenSegmentDisplay = cx.resources.disp1;
         match DISP {
             0 => {
                 cx.resources.dispi1.set_high().ok();
                 cx.resources.dispi2.set_low().ok();
                 cx.resources.dispi3.set_low().ok();
-                print_segment(cx.resources.disp1, 5);
+                print_segment(disp, disp.dig1);
                 //rprintln!("first digit {}", cx.resources.disp1.dig1);
             },
             1 => {
                 cx.resources.dispi1.set_low().ok();
                 cx.resources.dispi2.set_high().ok();
                 cx.resources.dispi3.set_low().ok();
-                print_segment(cx.resources.disp1, 8);
+                print_segment(disp, disp.dig2);
                 //rprintln!("second digit {}", cx.resources.disp1.dig2);
             }
             2 => {
                 cx.resources.dispi1.set_low().ok();
                 cx.resources.dispi2.set_low().ok();
                 cx.resources.dispi3.set_high().ok();
-                print_segment(cx.resources.disp1, 0);
+                print_segment(disp, disp.dig3);
                 //rprintln!("third digit {}", cx.resources.disp1.dig3);
             }
             _ => {

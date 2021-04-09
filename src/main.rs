@@ -260,7 +260,7 @@ const APP: () = {
         let read_val = ctx.resources.adc.current_sample();
         ctx.resources.adc_current_val.lock(|adc_current_val| {
             *adc_current_val = read_val;
-            rprintln!("Val: {}", adc_current_val);
+            //rprintln!("Val: {}", adc_current_val);
         });
         
         // ctx.resources.adc.clear_end_of_conversion_flag();

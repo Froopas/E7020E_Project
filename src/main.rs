@@ -281,6 +281,7 @@ const APP: () = {
         {
             *ctx.resources.adc_last_val = *ctx.resources.adc_current_val;
             // Display stuff
+            // Temperature follows temp = val * 0.62 - 83.5
             let val = *ctx.resources.adc_last_val;
             let disp = ctx.resources.disp1;
             disp.dig1 = (val as u8/100)%10;

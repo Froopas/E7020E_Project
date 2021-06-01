@@ -9,10 +9,11 @@ use stm32f4xx_hal::{
     dwt::Dwt,
     gpio::{
         gpioa::{PA0,PA1,PA2,PA3,PA4,PA5,PA6,PA7,PA8, PA9, PA10},
+        gpiob::{PB10, PB4, PB12, PB0},
         gpioc::{PC13, PC2, PC3, PC11, PC12},
         Input,
         PullUp,
-        gpiob::{PB10, PB4, PB12},
+        Analog,
         Alternate, Output, PushPull, Speed,
     },
     otg_fs::{UsbBus, UsbBusType, USB},
@@ -71,11 +72,16 @@ pub struct SevenSegmentDisplay {
     segA: PA7<Output<PushPull>>,
     dig1: u8,
     dig2: u8,
-    dig3: u8,
+    dig3: u8
+}
+
+pub struct ACDC {
+    adc:Adc<ADC1>,
+    pb0:PB0<Analog>
 }
 
 const RATIO: u32 = 5;
-const ADC_THREASHOLD: u16 = 10;
+const ADC_THREASHOLD: i16 = 10;
 
 #[rtic::app(device = stm32f4xx_hal::stm32, monotonic = rtic::cyccnt::CYCCNT, peripherals = true)]
 const APP: () = {
@@ -97,11 +103,12 @@ const APP: () = {
         dispi2: PA9<Output<PushPull>>,
         dispi3: PA10<Output<PushPull>>,
 
-        adc: Adc<ADC1>,
+        adc_struct: ACDC,
+
         #[init(0)]
-        adc_last_val: u16,
+        adc_temperature_last_val: u16,
         #[init(0)]
-        adc_current_val: u16,
+        adc_scroll_last_val: u16,
     }
 
     #[init(schedule=[poll_pmw, display])]
@@ -212,24 +219,15 @@ const APP: () = {
         let di2 = gpioa.pa9.into_push_pull_output();
         let di3 = gpioa.pa10.into_push_pull_output();
 
-        // Loads default adc config and apply changes for continius scan mode
-        let config = AdcConfig::default().
-            end_of_conversion_interrupt(Eoc::Conversion).
-            scan(Scan::Enabled).
-            clock(Clock::Pclk2_div_8);
-        
-        let mut adc = Adc::adc1(ctx.device.ADC1, true, config);
+        let mut adc = Adc::adc1(ctx.device.ADC1, true, AdcConfig::default());
         adc.enable_temperature_and_vref();
-        // let adc_pin = gpioa.pa0.into_analog();    
-        adc.configure_channel(&Temperature, Sequence::One, SampleTime::Cycles_480);
-        
-        // unsafe {
-        //     let register = core::ptr::read_volatile(0x40040034 as *const u32);
-        // }
+        let pb0 = gpiob.pb0.into_analog();
+        let adc_struct = ACDC {
+            adc:adc,
+            pb0:pb0,            
+        };
 
-        adc.start_conversion();
-
-        init::LateResources { pmw3389, hid, usb_dev, r_buttn:pc12, l_buttn:pc11, disp1:d1, dispi1:di1, dispi2:di2, dispi3:di3, adc}
+        init::LateResources { pmw3389, hid, usb_dev, r_buttn:pc12, l_buttn:pc11, disp1:d1, dispi1:di1, dispi2:di2, dispi3:di3, adc_struct:adc_struct}
     }
 
     #[task(priority = 2, resources = [pmw3389, x_cord, y_cord], schedule = [poll_pmw])]
@@ -243,50 +241,46 @@ const APP: () = {
 
         *res.x_cord += dx;
         *res.y_cord += dy;
-        
-        //let hid = res.hid;
 
-        //hid.write(&hid::report(*res.buttn, *res.x_cord, *res.y_cord));
-        //cx.spawn.report().unwrap();
-        // task should run each second N ms (16_000 cycles at 16MHz)
         cx.schedule
             .poll_pmw(cx.scheduled + (RATIO * 16_000).cycles())
             .unwrap();
     }
 
-    #[task(binds=ADC, resources = [adc, adc_current_val], priority=1)]
-    fn adc_compleat(mut ctx: adc_compleat::Context) {
-
-        let read_val = ctx.resources.adc.current_sample();
-        ctx.resources.adc_current_val.lock(|adc_current_val| {
-            *adc_current_val = read_val;
-            //rprintln!("Val: {}", adc_current_val);
-        });
-        
-        // ctx.resources.adc.clear_end_of_conversion_flag();
-        ctx.resources.adc.start_conversion();
-    }
-
-
-    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn, adc_last_val, adc_current_val, disp1], priority = 2)]
-    fn on_usb(ctx: on_usb::Context) {
+    #[task(binds=OTG_FS, resources = [ hid, usb_dev, x_cord, y_cord, r_buttn, l_buttn, adc_temperature_last_val, disp1, adc_scroll_last_val, adc_struct], priority = 2)]
+    fn on_usb(mut ctx: on_usb::Context) {
         static mut x_overflow: i8 = 0;
         static mut y_overflow: i8 = 0;
-        static DPI:i8 = 5;
+        static DPI:i8 = 10;
+        static SCROLL_DIST: i8 = 2;
 
-        if  (*ctx.resources.adc_last_val < *ctx.resources.adc_current_val && 
-            *ctx.resources.adc_last_val - *ctx.resources.adc_current_val > ADC_THREASHOLD) ||
-            (*ctx.resources.adc_current_val < *ctx.resources.adc_last_val && 
-            *ctx.resources.adc_current_val - *ctx.resources.adc_last_val > ADC_THREASHOLD)
-        {
-            *ctx.resources.adc_last_val = *ctx.resources.adc_current_val;
-            // Display stuff
-            // Temperature follows temp = val * 0.62 - 83.5
-            let val = *ctx.resources.adc_last_val;
+        let adc_struct = ctx.resources.adc_struct;
+        let mut temp_last: u16 = *ctx.resources.adc_temperature_last_val;
+        let mut temp_curr: u16 = adc_struct.adc.convert(&Temperature, SampleTime::Cycles_144);
+        let mut scroll_last: u16 = *ctx.resources.adc_scroll_last_val;
+        let mut scroll_curr: u16 = adc_struct.adc.convert(&adc_struct.pb0, SampleTime::Cycles_144);;
+
+        let scroll_diff = scroll_curr as i16 - scroll_last as i16;
+
+        let temp_diff = (temp_curr as i16 - temp_last as i16).abs();
+
+        if temp_diff > ADC_THREASHOLD {
             let disp = ctx.resources.disp1;
-            disp.dig1 = (val as u8/100)%10;
-            disp.dig2 = (val as u8/10)%10;
-            disp.dig3 = (val as u8)%10;
+            let temp = ((temp_curr as f32) * 0.62 ) - 549.5;
+            let temp2: u32 = temp as u32;
+            disp.dig1 = (temp2 as u8/100)%10;
+            disp.dig2 = (temp2 as u8/10)%10;
+            disp.dig3 = (temp2 as u8)%10;
+            *ctx.resources.adc_temperature_last_val = temp_curr;
+        }
+        let mut scroll_output:i8 = 0;
+        if scroll_diff.abs() > 100 && scroll_curr > 300 {
+            *ctx.resources.adc_scroll_last_val = scroll_curr;
+            if (scroll_diff > 0) {
+                scroll_output = SCROLL_DIST;
+            } else {
+                scroll_output = -SCROLL_DIST;
+            }
         }
 
         // destruct the context
@@ -296,8 +290,6 @@ const APP: () = {
             y_cord,
             r_buttn,
             l_buttn,
-            adc_last_val,
-            adc_current_val
         ) = ( 
             ctx.resources.usb_dev, 
             ctx.resources.hid,
@@ -305,8 +297,6 @@ const APP: () = {
             ctx.resources.y_cord,
             ctx.resources.r_buttn,
             ctx.resources.l_buttn,
-            ctx.resources.adc_last_val,
-            ctx.resources.adc_current_val,
         );
 
         let x = (*x_cord + *x_overflow) / DPI;
@@ -320,9 +310,8 @@ const APP: () = {
             x: x,
             y: y,
             buttons: ((r_buttn.is_low().unwrap() as u8 )<< 1) | (l_buttn.is_low().unwrap() as u8), // (into takes a bool into an integer)
-            wheel: 0,
+            wheel: scroll_output,
         };
-        //rprintln!("Report: x:{}, y:{}", *x_cord, *y_cord);
 
         *x_cord = 0;
         *y_cord = 0;
@@ -333,7 +322,6 @@ const APP: () = {
         if usb_dev.poll(&mut [hid]) {
             return;
         }
-        //rprintln!("cycle @{:?}", Instant::now());
     }
 
     #[task(resources=[disp1,dispi1,dispi2,dispi3], schedule=[display], priority = 2)]
@@ -347,26 +335,20 @@ const APP: () = {
                 cx.resources.dispi2.set_low().ok();
                 cx.resources.dispi3.set_low().ok();
                 print_segment(disp, disp.dig1);
-                //rprintln!("first digit {}", cx.resources.disp1.dig1);
             },
             1 => {
                 cx.resources.dispi1.set_low().ok();
                 cx.resources.dispi2.set_high().ok();
                 cx.resources.dispi3.set_low().ok();
                 print_segment(disp, disp.dig2);
-                //rprintln!("second digit {}", cx.resources.disp1.dig2);
             }
             2 => {
                 cx.resources.dispi1.set_low().ok();
                 cx.resources.dispi2.set_low().ok();
                 cx.resources.dispi3.set_high().ok();
                 print_segment(disp, disp.dig3);
-                //rprintln!("third digit {}", cx.resources.disp1.dig3);
             }
             _ => {
-                /*cx.resources.dispi1.set_low().ok();
-                cx.resources.dispi2.set_low().ok();
-                cx.resources.dispi3.set_low().ok();*/
             }
         }
         *DISP = (*DISP+1)%3;

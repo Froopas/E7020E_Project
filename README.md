@@ -59,6 +59,9 @@ The first prototype of the shell could fit the pcb and had the sensor working, b
 display and was not very responsive for the buttons. A second version of this is on the way, but due to 
 time constraints this will not be finished for the presentation.
 
+
+![version1](https://github.com/Froopas/E7020E_Project/blob/main/img/version1.jpg "version1")
+
 ## Testing
 
 The mouse has been tested on Linux and on Windows. It worked great on Linux, but on Windows we had to 

@@ -19,17 +19,6 @@ use stm32f4xx_hal::{
     otg_fs::{UsbBus, UsbBusType, USB},
     spi::Spi,
     prelude::*,
-    stm32::ADC1,
-    adc::{
-        Adc,
-        config::AdcConfig,
-        config::SampleTime,
-        config::Sequence,
-        config::Eoc,
-        config::Scan,
-        config::Clock,
-        Temperature,
-    },
 };
 use embedded_hal::spi::MODE_3;
 use cortex_m::{asm::delay, peripheral::DWT};
@@ -83,6 +72,8 @@ pub struct ACDC {
 const RATIO: u32 = 5;
 const ADC_THREASHOLD: i16 = 10;
 
+const RATIO: u32 = 5;
+
 #[rtic::app(device = stm32f4xx_hal::stm32, monotonic = rtic::cyccnt::CYCCNT, peripherals = true)]
 const APP: () = {
     struct Resources {
@@ -102,13 +93,13 @@ const APP: () = {
         dispi1: PA8<Output<PushPull>>,
         dispi2: PA9<Output<PushPull>>,
         dispi3: PA10<Output<PushPull>>,
-
+      
         adc_struct: ACDC,
-
         #[init(0)]
         adc_temperature_last_val: u16,
         #[init(0)]
         adc_scroll_last_val: u16,
+
     }
 
     #[init(schedule=[poll_pmw, display])]
@@ -200,7 +191,7 @@ const APP: () = {
             gpioa.pa6.into_push_pull_output(),
             gpioa.pa7.into_push_pull_output(),
         );
-
+      
         let d1 = SevenSegmentDisplay{
             segDP: pa0,
             segG: pa1,
@@ -313,6 +304,7 @@ const APP: () = {
             wheel: scroll_output,
         };
 
+
         *x_cord = 0;
         *y_cord = 0;
         // push the report
@@ -322,6 +314,35 @@ const APP: () = {
         if usb_dev.poll(&mut [hid]) {
             return;
         }
+    }
+
+    #[task(resources=[disp1,dispi1,dispi2,dispi3], schedule=[display])]
+    fn display(cx: display::Context) {
+        static mut DISP:u8 = 0;
+        cx.schedule.display(cx.scheduled + (5 * 48_000).cycles()).unwrap();
+        match DISP {
+            0 => {
+                cx.resources.dispi1.set_high().ok();
+                cx.resources.dispi2.set_low().ok();
+                cx.resources.dispi3.set_low().ok();
+                print_segment(cx.resources.disp1, 5);
+            },
+            1 => {
+                cx.resources.dispi1.set_low().ok();
+                cx.resources.dispi2.set_high().ok();
+                cx.resources.dispi3.set_low().ok();
+                print_segment(cx.resources.disp1, 8);
+            }
+            2 => {
+                cx.resources.dispi1.set_low().ok();
+                cx.resources.dispi2.set_low().ok();
+                cx.resources.dispi3.set_high().ok();
+                print_segment(cx.resources.disp1, 0);
+            }
+            _ => {
+            }
+        }
+        *DISP = (*DISP+1)%3;
     }
 
     #[task(resources=[disp1,dispi1,dispi2,dispi3], schedule=[display], priority = 2)]
@@ -383,7 +404,6 @@ fn print_segment(disp: &mut SevenSegmentDisplay, digit:u8) {
         1 => {
             disp.segB.set_low().ok();
             disp.segC.set_low().ok();
-            //rprintln!("printing 1");
         },
         2 => {
             disp.segA.set_low().ok();
@@ -454,5 +474,4 @@ fn print_segment(disp: &mut SevenSegmentDisplay, digit:u8) {
 
         }
     }
-
 }
